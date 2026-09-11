@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Advances in Activation Steering, Heteroscedastic Forecasting, and Domain Adaptation — Daily Digest</title>
+  <title>Advances in Activation Steering, Conformal Calibration, and Continual RL — Daily Digest</title>
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body data-root="../">
@@ -25,7 +25,7 @@
 <article class="post">
   
   <figure class="post-hero">
-    <img src="../assets/headers/2026-09-11/arxiv-cs-lg.png" alt="" width="1376" height="768" decoding="async">
+    <img src="../assets/headers/2026-09-11/arxiv-cs-lg.jpg" alt="" width="1376" height="768" decoding="async">
   </figure>
   
   <p class="kicker">
@@ -33,28 +33,29 @@
     <a href="https://arxiv.org/list/cs.LG/recent">arXiv cs.LG</a>
     
   </p>
-  <h1>Advances in Activation Steering, Heteroscedastic Forecasting, and Domain Adaptation</h1>
+  <h1>Advances in Activation Steering, Conformal Calibration, and Continual RL</h1>
   <p class="meta">
     <time datetime="2026-09-11">Friday, 11 September 2026</time>
     · <a href="../2026-09-11/">That day’s posts</a>
   </p>
   <div class="body">
-    <p>Recent machine learning research focuses heavily on improving the steerability, interpretability, and evaluation of complex model representations. Methodologies like GEOSTEER leverage geodesic optimization for norm-preserving activation steering in large language models to modify behavior at inference time without causing representation collapse. Simultaneously, theoretical investigations highlight critical pitfalls in interpretability tools, demonstrating that truth probes fitted in compliant contexts suffer from perfect aliasing where true reporting and task compliance cannot be distinguished. To better evaluate real-world model reliability, counterfactual marginalisation frameworks measure classifier invariance against demographic or domain-specific nuisance variables at test time.</p>
-<p>Fundamental algorithmic developments across forecasting, ordinal classification, and statistical calibration address long-standing loss function limitations. In time series forecasting, the Halo method shows that estimating heteroscedastic scale parameters directly improves point-estimate precision rather than serving solely as a tool for uncertainty quantification. In ordinal classification, adaptive margin losses mitigate "center-class hedging"—a common failure mode where neural networks output middle-ground classes to minimize expected loss. Additionally, conformal prediction frameworks are expanding to transfer calibration coverage guarantees from a labeled source domain to an unlabelled target domain where data exchangeability assumptions break down.</p>
-<p>Domain-specific applications illustrate how deep learning models are tailored to physical systems, maritime trajectory modeling, and distributed networks. Integrations of frozen text-to-image diffusion models into classical topology optimization allow engineers to generate bio-inspired structural designs without fine-tuning specialized networks. For spatio-temporal dynamics and decision-making, multimodal transformer architectures combine Mixture-of-Experts with language model priors for long-term vessel trajectory prediction, while goal-conditioned reinforcement learning formulations construct dense reward functions directly from directed state graph topologies.</p>
+    <p>Recent research in machine learning focuses heavily on interpreting, controlling, and evaluating complex models. Work in large language model (LLM) internal mechanics explores GEOSTEER, a method utilizing geodesic optimization to achieve norm-preserving activation steering without representation collapse, while parallel investigations analyze "perfect aliasing" failures in truth probes when task instructions align with truthful outputs. In continual reinforcement learning (RL), foundational work formalizes the stability-plasticity tradeoff via an information-theoretic Bellman optimality equation, while hierarchical RL research leverages directed graph connectivity to shape dense reward functions.</p>
+<p>Methodological improvements to model reliability and calibration also take center stage. Studies on ordinal classification identify "center-class hedging" and introduce adaptive margin loss functions to penalize intermediate-class biases. In uncertainty estimation, conformal prediction frameworks are extended to support calibration transfer across domain shifts, and counterfactual marginalization is proposed as a test-time evaluation method using counterfactual generators to detect model reliance on shortcut features. Notably, time-series forecasting research demonstrates that joint heteroscedastic scale estimation directly improves point prediction accuracy.</p>
+<p>Domain-specific applications illustrate the practical deployment of these specialized architectures. Research in trajectory modeling combines mixture-of-experts architectures with text-derived domain context for long-term vessel prediction. In federated learning, new rotating-coordinator paradigms tackle Byzantine clients and bandwidth limits for edge-based fire detection. Additionally, zero-shot structural engineering merges frozen diffusion models with topology optimization for rib design, and systematic reviews synthesize deep learning progress in lung cancer imaging.</p>
+<h2>Papers</h2>
 <ul>
-<li><a href="https://arxiv.org/abs/2609.10559">M3-Former: Multimodal Transformer with Mixture-of-Experts for Long-Term Vessel Trajectory Prediction</a>: Combines static vessel attributes and navigational intent using large language model priors and a Mixture-of-Experts transformer to improve long-term vessel trajectory forecasting.</li>
-<li><a href="https://arxiv.org/abs/2609.10589">Halo: Improving forecast accuracy through heteroscedastic estimation</a>: Demonstrates that estimating scale parameters alongside location parameters via heteroscedastic estimation improves point forecast accuracy in time series models.</li>
-<li><a href="https://arxiv.org/abs/2609.10643">Zero-shot rib design: merging training-free generative prior with topology optimization</a>: Integrates frozen text-to-image diffusion models with topology optimization to synthesize bio-inspired structural designs without specialized retraining.</li>
-<li><a href="https://arxiv.org/abs/2609.10647">Byzantine-Robust Federated Fire Detection with a Rotating Coordinator</a>: Introduces a federated learning framework with rotating coordinators for privacy-preserving indoor fire detection resilient to Byzantine clients and bandwidth limits.</li>
-<li><a href="https://arxiv.org/abs/2609.10652">Artificial Intelligence Algorithms for the Detection of Pathologies Related to Lung Cancer through Image Analysis using Convolutional Neural Networks and Data Augmentation: a systematic mapping of the literature</a>: Provides a systematic literature mapping of deep learning and data augmentation methods applied to lung cancer pathology detection in medical imaging.</li>
-<li><a href="https://arxiv.org/abs/2609.10658">GEOSTEER: Geodesic Optimization for Activation Steering in Large Language Models</a>: Applies geodesic optimization to maintain norm-preserving hidden activations during inference-time activation steering in large language models.</li>
-<li><a href="https://arxiv.org/abs/2609.10737">Conformal Calibration Transfer</a>: Extends conformal prediction guarantees to target spaces where labeled calibration data is only available in a source domain.</li>
-<li><a href="https://arxiv.org/abs/2609.10739">The Truth Was Never Gone: Perfect Aliasing in Compliant-Context Truth Probes</a>: Identifies perfect aliasing as a structural limitation in truth probes, showing that probes trained where truth and task compliance coincide cannot distinguish between the two targets.</li>
-<li><a href="https://arxiv.org/abs/2609.10752">Adaptive Margin Ordinal Loss: Penalizing Center-Class Hedging in Ordinal Classification</a>: Proposes an adaptive margin loss to prevent neural networks in ordinal classification tasks from conservatively predicting center classes.</li>
-<li><a href="https://arxiv.org/abs/2609.10776">A Bellman Optimality Equation for Plasticity</a>: Formulates a theoretical framework based on Bellman optimality equations to analyze plasticity and empowerment tradeoffs in continual reinforcement learning.</li>
-<li><a href="https://arxiv.org/abs/2609.10778">Counterfactual Marginalisation: Framework for Evaluating Robustness to Nuisance Variables</a>: Proposes a test-time evaluation framework using counterfactual generators to measure classifier robustness against nuisance variables.</li>
-<li><a href="https://arxiv.org/abs/2609.10781">From Connectivity to Rewards: Dense Reward Learning with Directed State Graphs</a>: Utilizes directed state graph topologies to construct dense reward functions in goal-conditioned hierarchical reinforcement learning.</li>
+<li><a href="https://arxiv.org/abs/2609.10559">M3-Former: Multimodal Transformer with Mixture-of-Experts for Long-Term Vessel Trajectory Prediction</a>: Combines language model context and mixture-of-experts architectures with static vessel attributes to improve long-term maritime trajectory forecasting.</li>
+<li><a href="https://arxiv.org/abs/2609.10589">Halo: Improving forecast accuracy through heteroscedastic estimation</a>: Demonstrates that estimating scale parameters alongside location parameters directly improves point estimate accuracy in time series forecasting models.</li>
+<li><a href="https://arxiv.org/abs/2609.10643">Zero-shot rib design: merging training-free generative prior with topology optimization</a>: Integrates frozen text-to-image diffusion priors with topology optimization to synthesize structural load-bearing rib patterns guided by natural language.</li>
+<li><a href="https://arxiv.org/abs/2609.10647">Byzantine-Robust Federated Fire Detection with a Rotating Coordinator</a>: Introduces a rotating coordinator setup for federated indoor fire detection to address uplink bandwidth limits and malicious or faulty edge devices.</li>
+<li><a href="https://arxiv.org/abs/2609.10652">Artificial Intelligence Algorithms for the Detection of Pathologies Related to Lung Cancer through Image Analysis using Convolutional Neural Networks and Data Augmentation: a systematic mapping of the literature</a>: Presents a systematic mapping of literature regarding convolutional neural networks and data augmentation for lung cancer image analysis.</li>
+<li><a href="https://arxiv.org/abs/2609.10658">GEOSTEER: Geodesic Optimization for Activation Steering in Large Language Models</a>: Applies geodesic optimization to perform norm-preserving activation steering in language models without causing activation norm collapse.</li>
+<li><a href="https://arxiv.org/abs/2609.10737">Conformal Calibration Transfer</a>: Extends conformal prediction guarantees to deployment target spaces where labeled calibration data is only available in a source space.</li>
+<li><a href="https://arxiv.org/abs/2609.10739">The Truth Was Never Gone: Perfect Aliasing in Compliant-Context Truth Probes</a>: Examines the phenomenon of perfect aliasing, where truth probes trained on compliant contexts fail to separate truthfulness from task-prescribed actions.</li>
+<li><a href="https://arxiv.org/abs/2609.10752">Adaptive Margin Ordinal Loss: Penalizing Center-Class Hedging in Ordinal Classification</a>: Proposes an adaptive margin loss to correct center-class hedging, a failure mode where ordinal classifiers default to predicting middle classes.</li>
+<li><a href="https://arxiv.org/abs/2609.10776">A Bellman Optimality Equation for Plasticity</a>: Formulates the stability-plasticity dilemma in continual reinforcement learning using an information-theoretic Bellman optimality framework.</li>
+<li><a href="https://arxiv.org/abs/2609.10778">Counterfactual Marginalisation: Framework for Evaluating Robustness to Nuisance Variables</a>: Evaluates model robustness against demographic and acquisition shortcuts at test time using counterfactual image generation.</li>
+<li><a href="https://arxiv.org/abs/2609.10781">From Connectivity to Rewards: Dense Reward Learning with Directed State Graphs</a>: Uses directed graph connectivity within goal-conditioned hierarchical reinforcement learning to construct dense reward functions.</li>
 </ul>
   </div>
   
