@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}{{ site.title }}{% endblock %}
+{% block content %}
+<section class="intro">
+  <h1>Recent days</h1>
+  <p>Pick a date above, or open a day below. Each source gets one post.</p>
+</section>
+{% if recent %}
+  {% for day, posts in recent %}
+  <section class="day-tease">
+    <h2><a href="{{ root }}{{ day }}/"><time datetime="{{ day }}">{{ day|longdate }}</time></a></h2>
+    <ul>
+      {% for post in posts %}
+      <li>
+        <span class="source">{{ post.source }}</span>
+        <a href="{{ root }}{{ day }}/{{ post.slug }}.html">{{ post.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+{% else %}
+  <p class="empty">No posts yet. Run <code>python -m digest run</code> after setting <code>GEMINI_API_KEY</code>.</p>
+{% endif %}
+<p class="more"><a href="{{ root }}dates/">Index of every date →</a></p>
+{% endblock %}

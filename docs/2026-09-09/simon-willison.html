@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notes on evals, feeds, and writing with models that can see the links — Daily Digest</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root="../">
+  <header class="masthead">
+    <div class="masthead-inner">
+      <p class="brand"><a href="../">Daily Digest</a></p>
+      <p class="tagline">Data science digests from RSS, one post per source per day.</p>
+      <form class="date-go" role="search" action="../dates/" method="get">
+        <label for="digest-date">Date</label>
+        <input id="digest-date" name="date" data-date-picker type="date" value="2026-09-09">
+        <noscript>
+          <button type="submit">Browse dates</button>
+        </noscript>
+      </form>
+    </div>
+  </header>
+  <main>
+    
+<article class="post">
+  <p class="kicker">
+    
+    <a href="https://simonwillison.net">Simon Willison’s Weblog</a>
+    
+  </p>
+  <h1>Notes on evals, feeds, and writing with models that can see the links</h1>
+  <p class="meta">
+    <time datetime="2026-09-09">Wednesday, 09 September 2026</time>
+    · <a href="../2026-09-09/">That day’s posts</a>
+  </p>
+  <div class="body">
+    <p>A dense day even by this weblog’s standards: one post on evaluation harnesses, one on RSS as an API, and a shorter note about prompting models to quote URLs they were actually given.</p>
+<p>The RSS piece is the one that belongs in this project’s lineage. Treat feeds as structured input, keep the model on a short leash, and store the prose in git so a bad generation is a revert, not a mystery.</p>
+<h2>Stories</h2>
+<ul>
+<li><a href="https://simonwillison.net/">RSS is an API you already have</a> — Fetch, cap the item count, and refuse to invent URLs.</li>
+<li><a href="https://simonwillison.net/">Evals for summaries</a> — Cheap checks: did every listed link appear in the source items?</li>
+<li><a href="https://simonwillison.net/">Grounding without retrieval theater</a> — Sometimes the “index” is twelve feed entries in a prompt.</li>
+</ul>
+  </div>
+  
+  <p class="source-note">Original feed: <a href="https://simonwillison.net">Simon Willison’s Weblog</a></p>
+  
+</article>
+
+  </main>
+  <footer>
+    <nav>
+      <a href="../">Home</a>
+      <a href="../dates/">All dates</a>
+    </nav>
+    <p>Summaries are generated from public RSS feeds. Follow original links for the full stories.</p>
+  </footer>
+  <script src="../assets/app.js"></script>
+</body>
+</html>

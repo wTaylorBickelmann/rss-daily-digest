@@ -1,0 +1,40 @@
+# Site chrome plus the RSS sources to digest each day.
+# Add or remove entries freely: id (url slug), name, url, optional homepage.
+
+site:
+  title: Daily Digest
+  tagline: Data science digests from RSS, one post per source per day.
+
+max_items: 12
+model: gemini-3.6-flash
+
+feeds:
+  - id: arxiv-cs-lg
+    name: arXiv cs.LG
+    url: https://rss.arxiv.org/rss/cs.LG
+    homepage: https://arxiv.org/list/cs.LG/recent
+
+  - id: towards-data-science
+    name: Towards Data Science
+    url: https://towardsdatascience.com/feed
+    homepage: https://towardsdatascience.com
+
+  - id: kdnuggets
+    name: KDnuggets
+    url: https://www.kdnuggets.com/feed
+    homepage: https://www.kdnuggets.com
+
+  - id: huggingface-blog
+    name: Hugging Face Blog
+    url: https://huggingface.co/blog/feed.xml
+    homepage: https://huggingface.co/blog
+
+  - id: lil-log
+    name: Lil’Log
+    url: https://lilianweng.github.io/posts/index.xml
+    homepage: https://lilianweng.github.io
+
+  - id: sebastian-raschka
+    name: Sebastian Raschka
+    url: https://sebastianraschka.com/rss_feed.xml
+    homepage: https://sebastianraschka.com

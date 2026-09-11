@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{{ day|longdate }} — {{ site.title }}{% endblock %}
+{% block content %}
+<article class="day-page">
+  <p class="kicker">Daily digest</p>
+  <h1><time datetime="{{ day }}">{{ day|longdate }}</time></h1>
+  <p class="meta">{{ posts|length }} post{{ "s" if posts|length != 1 else "" }}
+    {% if prev_date %} · <a href="{{ root }}{{ prev_date }}/">Older</a>{% endif %}
+    {% if next_date %} · <a href="{{ root }}{{ next_date }}/">Newer</a>{% endif %}
+  </p>
+  <ul class="post-list">
+    {% for post in posts %}
+    <li>
+      <p class="source">{{ post.source }}</p>
+      <h2><a href="{{ post.slug }}.html">{{ post.title }}</a></h2>
+      <p>{{ post.excerpt() }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+</article>
+{% endblock %}

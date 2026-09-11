@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Not found — {{ site.title }}{% endblock %}
+{% block content %}
+<section class="intro" data-404>
+  <h1>No digest for that address</h1>
+  <p>Use the date field, or open the <a id="dates-link" href="{{ root }}dates/">date index</a>. Missing days use <code>/YYYY-MM-DD/</code>.</p>
+  <p><a id="home-link" href="{{ root }}">Home</a></p>
+</section>
+{% endblock %}

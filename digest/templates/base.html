@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ site.title }}{% endblock %}</title>
+  <link rel="stylesheet" href="{{ root }}assets/style.css">
+</head>
+<body data-root="{{ root }}">
+  <header class="masthead">
+    <div class="masthead-inner">
+      <p class="brand"><a href="{{ root }}">{{ site.title }}</a></p>
+      <p class="tagline">{{ site.tagline }}</p>
+      <form class="date-go" role="search" action="{{ root }}dates/" method="get">
+        <label for="digest-date">Date</label>
+        <input id="digest-date" name="date" data-date-picker type="date" value="{{ active_date }}">
+        <noscript>
+          <button type="submit">Browse dates</button>
+        </noscript>
+      </form>
+    </div>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  <footer>
+    <nav>
+      <a href="{{ root }}">Home</a>
+      <a href="{{ root }}dates/">All dates</a>
+    </nav>
+    <p>Summaries are generated from public RSS feeds. Follow original links for the full stories.</p>
+  </footer>
+  <script src="{{ root }}assets/app.js"></script>
+</body>
+</html>
