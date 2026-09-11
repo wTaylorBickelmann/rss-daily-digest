@@ -19,6 +19,8 @@ PACKAGE_DIR = Path(__file__).resolve().parent
 
 # gemini-2.0-flash is retired (404). Override with GEMINI_MODEL if needed.
 DEFAULT_MODEL = "gemini-3.6-flash"
+# Nano Banana 2 (current Gemini image model). Override with GEMINI_IMAGE_MODEL.
+DEFAULT_IMAGE_MODEL = "gemini-3.1-flash-image"
 
 load_dotenv(ROOT / ".env")
 
@@ -37,6 +39,7 @@ class SiteConfig:
     tagline: str
     max_items: int
     model: str
+    image_model: str
 
 
 def utc_today() -> date:
@@ -74,6 +77,10 @@ def load_site() -> SiteConfig:
         tagline=site.get("tagline", "RSS, summarized each day."),
         max_items=int(raw.get("max_items", 12)),
         model=os.environ.get("GEMINI_MODEL") or str(raw.get("model", DEFAULT_MODEL)),
+        image_model=(
+            os.environ.get("GEMINI_IMAGE_MODEL")
+            or str(raw.get("image_model", DEFAULT_IMAGE_MODEL))
+        ),
     )
 
 

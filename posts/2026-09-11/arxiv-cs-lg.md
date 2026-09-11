@@ -5,6 +5,7 @@ date: '2026-09-11'
 source: arXiv cs.LG
 source_url: https://arxiv.org/list/cs.LG/recent
 slug: arxiv-cs-lg
+header_image: assets/headers/2026-09-11/arxiv-cs-lg.png
 ---
 
 Research from this selection of papers heavily emphasizes internal representation dynamics, probe evaluation, and fine-grained model control. Work on large language models presents geodesic optimization for norm-preserving activation steering, allowing targeted control of hidden states without inducing representation collapse. On the evaluation front, researchers highlight "perfect aliasing" in truth probes, showing how training probes on compliant contexts prevents them from distinguishing true reporting from task-following behavior. Additionally, counterfactual marginalization introduces a test-time framework that uses generative interventions on nuisance variables to stress-test vision models against shortcut reliance.

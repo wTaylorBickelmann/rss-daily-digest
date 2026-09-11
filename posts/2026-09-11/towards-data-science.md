@@ -4,6 +4,7 @@ date: '2026-09-11'
 source: Towards Data Science
 source_url: https://towardsdatascience.com
 slug: towards-data-science
+header_image: assets/headers/2026-09-11/towards-data-science.png
 ---
 
 As artificial intelligence becomes deeply integrated into software development, maintaining structured design principles and intent-driven architectures is increasingly essential. Rather than relying solely on larger context windows, coding agents require systems that can track and apply core requirements across long sessions. Simultaneously, the rise of automated coding highlights that foundational software design remains critical to maintaining maintainable, robust codebases.

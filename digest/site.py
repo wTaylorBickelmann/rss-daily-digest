@@ -107,6 +107,7 @@ def _copy_assets() -> None:
     for file in STATIC.iterdir():
         if file.is_file():
             shutil.copy2(file, dest / file.name)
+    # Header PNGs live in docs/assets/headers/ and are left in place.
 
 
 def _clear_date_dirs(docs: Path) -> None:

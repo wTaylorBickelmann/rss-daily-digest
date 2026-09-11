@@ -33,6 +33,8 @@ jobs:
           test -f docs/2026-09-10/index.html
           test -f docs/2026-09-09/index.html
           grep -q "digest-date" docs/index.html
+          test -f docs/assets/headers/2026-09-10/hacker-news.png
+          grep -q "assets/headers/2026-09-10/hacker-news.png" docs/2026-09-10/hacker-news.html
 
       - name: Tests
         run: python -m unittest discover -s tests -v

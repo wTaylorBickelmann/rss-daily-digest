@@ -4,6 +4,7 @@ date: 2026-09-10
 source: LWN.net
 source_url: https://lwn.net
 slug: lwn
+header_image: assets/headers/2026-09-10/lwn.png
 ---
 
 LWN’s headlines were the usual mix of deeply specific and surprisingly general: a Rust-for-Linux merge that is small on lines and large on precedent, and a filesystem discussion that only looks boring until you map it onto real disks.

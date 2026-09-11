@@ -4,6 +4,7 @@ date: 2026-09-10
 source: arXiv cs.AI
 source_url: https://arxiv.org/list/cs.AI/recent
 slug: arxiv-cs-ai
+header_image: assets/headers/2026-09-10/arxiv-cs-ai.png
 ---
 
 cs.AI’s recent list mixed safety evaluations with systems papers that try to spend fewer tokens for the same downstream score. The through-line is measurement: several abstracts spend as much space defining what they *won’t* claim as on the method.

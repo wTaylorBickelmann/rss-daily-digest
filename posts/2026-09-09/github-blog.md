@@ -4,6 +4,7 @@ date: 2026-09-09
 source: GitHub Blog
 source_url: https://github.blog
 slug: github-blog
+header_image: assets/headers/2026-09-09/github-blog.png
 ---
 
 GitHub’s blog spent yesterday on the unglamorous parts of shipping: Actions runners, Pages deployment, and a security note that will matter more to bot authors than to README readers.

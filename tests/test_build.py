@@ -36,9 +36,11 @@ class ConfigTests(unittest.TestCase):
                 "sebastian-raschka",
             },
         )
-        env = {k: v for k, v in os.environ.items() if k != "GEMINI_MODEL"}
+        env = {k: v for k, v in os.environ.items() if k not in {"GEMINI_MODEL", "GEMINI_IMAGE_MODEL"}}
         with patch.dict(os.environ, env, clear=True):
-            self.assertEqual(load_site().model, "gemini-3.6-flash")
+            site = load_site()
+            self.assertEqual(site.model, "gemini-3.6-flash")
+            self.assertEqual(site.image_model, "gemini-3.1-flash-image")
         self.assertEqual(DEFAULT_MODEL, "gemini-3.6-flash")
 
 
@@ -52,12 +54,14 @@ class PostTests(unittest.TestCase):
             self.assertTrue(post.title)
             self.assertTrue(post.source)
             self.assertTrue(post.body)
+            self.assertTrue(post.header_image.startswith("assets/headers/"))
 
     def test_round_trip_front_matter(self):
         path = ROOT / "posts" / "2026-09-10" / "hacker-news.md"
         post = parse_post(path)
         self.assertEqual(post.slug, "hacker-news")
         self.assertEqual(post.date, "2026-09-10")
+        self.assertEqual(post.header_image, "assets/headers/2026-09-10/hacker-news.png")
 
 
 class FeedSkipTests(unittest.TestCase):
@@ -95,7 +99,16 @@ class BuildTests(unittest.TestCase):
         self.assertIn("hacker-news.html", day.read_text(encoding="utf-8"))
 
         post = docs / "2026-09-10" / "hacker-news.html"
-        self.assertIn("Hacker News", post.read_text(encoding="utf-8"))
+        html = post.read_text(encoding="utf-8")
+        self.assertIn("Hacker News", html)
+        self.assertIn("assets/headers/2026-09-10/hacker-news.png", html)
+        self.assertIn("post-hero", html)
+        self.assertTrue((docs / "assets" / "headers" / "2026-09-10" / "hacker-news.png").is_file())
+
+        home = (docs / "index.html").read_text(encoding="utf-8")
+        self.assertIn('class="thumb"', home)
+        day_html = day.read_text(encoding="utf-8")
+        self.assertIn("thumb-wrap", day_html)
 
         dates = json.loads((docs / "dates.json").read_text(encoding="utf-8"))
         self.assertEqual(dates[0], max(dates))

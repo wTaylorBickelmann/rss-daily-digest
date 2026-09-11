@@ -4,6 +4,7 @@ date: 2026-09-09
 source: Quanta Magazine
 source_url: https://www.quantamagazine.org
 slug: quanta
+header_image: assets/headers/2026-09-09/quanta.png
 ---
 
 Quanta’s science desk split between a mathematics explainer that earns its length and a physics feature whose lede is an image. The math piece is the one that will still make sense next month: it is about a proof strategy, not a news peg.

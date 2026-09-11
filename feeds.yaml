@@ -7,6 +7,7 @@ site:
 
 max_items: 12
 model: gemini-3.6-flash
+image_model: gemini-3.1-flash-image
 
 feeds:
   - id: arxiv-cs-lg
