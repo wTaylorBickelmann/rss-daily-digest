@@ -89,9 +89,9 @@ feeds:
 
 Never commit a key. The client reads **only** the environment (and a local `.env` via python-dotenv).
 
-**Local:** copy `.env.example` to `.env` and set `GEMINI_API_KEY=...`. Optional: `GEMINI_MODEL=gemini-3.6-flash` (also the default in `feeds.yaml`).
+**Local:** copy `.env.example` to `.env` and set `GEMINI_API_KEY=...`. Optional: `GEMINI_MODEL=...` to override the default (`gemini-3.6-flash` in `feeds.yaml` and the client). Do not use `gemini-2.0-flash` — it is retired and returns 404.
 
-**GitHub Actions:** repo **Settings → Secrets and variables → Actions → New repository secret**. Name it exactly `GEMINI_API_KEY`. The daily workflow refuses to start if the secret is empty.
+**GitHub Actions:** repo **Settings → Secrets and variables → Actions → New repository secret**. Name it exactly `GEMINI_API_KEY`. The daily workflow refuses to start if the secret is empty. It uses `gemini-3.6-flash` unless `GEMINI_MODEL` is set.
 
 Get a key from [Google AI Studio](https://aistudio.google.com/apikey).
 
@@ -108,7 +108,7 @@ The daily workflow **commits** `posts/` and `docs/` back to the branch. That is 
 
 ## GitHub Actions
 
-- [`.github/workflows/daily.yml`](.github/workflows/daily.yml) — cron `0 12 * * *` (12:00 UTC) and **workflow_dispatch**. Installs the package, runs `python -m digest run` with `secrets.GEMINI_API_KEY`, commits if `posts/` or `docs/` changed. Permissions: `contents: write` (and `pages: write` reserved for a future artifact deploy).
+- [`.github/workflows/daily.yml`](.github/workflows/daily.yml) — cron `0 12 * * *` (12:00 UTC) and **workflow_dispatch**. Installs the package, runs `python -m digest run` with `secrets.GEMINI_API_KEY` and model `gemini-3.6-flash` (from `feeds.yaml`; `gemini-2.0-flash` is retired). Commits if `posts/` or `docs/` changed. Permissions: `contents: write` (and `pages: write` reserved for a future artifact deploy).
 - [`.github/workflows/ci.yml`](.github/workflows/ci.yml) — on pull request and `main`: `python -m digest build` plus unit tests. No Gemini secret.
 
 ## Layout

@@ -6,7 +6,7 @@ import re
 
 import httpx
 
-from digest.config import gemini_api_key
+from digest.config import DEFAULT_MODEL, gemini_api_key
 
 MISSING_KEY_MESSAGE = """\
 GEMINI_API_KEY is not set.
@@ -50,8 +50,9 @@ Items:
 """
 
 
-def generate(prompt: str, model: str) -> str:
+def generate(prompt: str, model: str | None = None) -> str:
     key = require_api_key()
+    model = (model or DEFAULT_MODEL).strip() or DEFAULT_MODEL
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],

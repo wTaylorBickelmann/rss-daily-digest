@@ -4,7 +4,7 @@ import unittest
 from datetime import date
 from unittest.mock import patch
 
-from digest.config import ROOT, Feed, load_feeds, load_site
+from digest.config import ROOT, DEFAULT_MODEL, Feed, load_feeds, load_site
 from digest.feeds import fetch_all
 from digest.gemini import require_api_key
 from digest.posts import load_all_posts, parse_post
@@ -39,6 +39,7 @@ class ConfigTests(unittest.TestCase):
         env = {k: v for k, v in os.environ.items() if k != "GEMINI_MODEL"}
         with patch.dict(os.environ, env, clear=True):
             self.assertEqual(load_site().model, "gemini-3.6-flash")
+        self.assertEqual(DEFAULT_MODEL, "gemini-3.6-flash")
 
 
 class PostTests(unittest.TestCase):

@@ -30,6 +30,7 @@ def fetch(day: date) -> dict[str, list[FeedItem]]:
 def summarize(day: date) -> list[Path]:
     require_api_key()
     site = load_site()
+    log.info("Summarizing with Gemini model %s", site.model)
     feeds = {feed.id: feed for feed in load_feeds()}
     by_id = _load_fetch(day)
     if not by_id:

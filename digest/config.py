@@ -17,6 +17,9 @@ DATA_DIR = ROOT / "data"
 FEEDS_FILE = ROOT / "feeds.yaml"
 PACKAGE_DIR = Path(__file__).resolve().parent
 
+# gemini-2.0-flash is retired (404). Override with GEMINI_MODEL if needed.
+DEFAULT_MODEL = "gemini-3.6-flash"
+
 load_dotenv(ROOT / ".env")
 
 
@@ -70,7 +73,7 @@ def load_site() -> SiteConfig:
         title=site.get("title", "Daily Digest"),
         tagline=site.get("tagline", "RSS, summarized each day."),
         max_items=int(raw.get("max_items", 12)),
-        model=os.environ.get("GEMINI_MODEL") or str(raw.get("model", "gemini-3.6-flash")),
+        model=os.environ.get("GEMINI_MODEL") or str(raw.get("model", DEFAULT_MODEL)),
     )
 
 
