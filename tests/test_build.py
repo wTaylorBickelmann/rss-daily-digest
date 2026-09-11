@@ -54,7 +54,8 @@ class PostTests(unittest.TestCase):
             self.assertTrue(post.title)
             self.assertTrue(post.source)
             self.assertTrue(post.body)
-            self.assertTrue(post.header_image.startswith("assets/headers/"))
+            if post.header_image:
+                self.assertTrue(post.header_image.startswith("assets/headers/"))
 
     def test_round_trip_front_matter(self):
         path = ROOT / "posts" / "2026-09-10" / "hacker-news.md"

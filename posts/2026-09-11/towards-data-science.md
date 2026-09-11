@@ -4,6 +4,7 @@ date: '2026-09-11'
 source: Towards Data Science
 source_url: https://towardsdatascience.com
 slug: towards-data-science
+header_image: assets/headers/2026-09-11/towards-data-science.png
 ---
 
 As automated coding and AI systems become more integrated into development workflows, design paradigms are shifting from expanding raw model capacity toward establishing better structural constraints. Recent discussions highlight how coding agents benefit more from preserving intent and requirement continuity across interactions than from simply expanding context history length. At the same time, the rise of AI-assisted code generation elevates the importance of traditional software design principles to ensure generated architectures remain manageable.
