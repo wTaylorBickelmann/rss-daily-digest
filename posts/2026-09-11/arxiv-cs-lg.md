@@ -4,6 +4,7 @@ date: '2026-09-11'
 source: arXiv cs.LG
 source_url: https://arxiv.org/list/cs.LG/recent
 slug: arxiv-cs-lg
+header_image: assets/headers/2026-09-11/arxiv-cs-lg.png
 ---
 
 Recent machine learning research focuses heavily on improving the steerability, interpretability, and evaluation of complex model representations. Methodologies like GEOSTEER leverage geodesic optimization for norm-preserving activation steering in large language models to modify behavior at inference time without causing representation collapse. Simultaneously, theoretical investigations highlight critical pitfalls in interpretability tools, demonstrating that truth probes fitted in compliant contexts suffer from perfect aliasing where true reporting and task compliance cannot be distinguished. To better evaluate real-world model reliability, counterfactual marginalisation frameworks measure classifier invariance against demographic or domain-specific nuisance variables at test time.

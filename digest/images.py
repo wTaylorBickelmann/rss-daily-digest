@@ -1,8 +1,9 @@
 """Gemini header images for digest posts.
 
-Uses the current Nano Banana image models (Gemini 3.1 Flash Image) via the
-Interactions API, with generateContent as a fallback. Same GEMINI_API_KEY as
-text summaries. Failures are returned as None so the text post still publishes.
+Primary path is generateContent with gemini-3.1-flash-image (returns JPEG).
+Interactions is a fallback and must request image/jpeg — image/png is 400.
+Same GEMINI_API_KEY as text summaries. Failures return None so the text
+post still publishes.
 """
 
 from __future__ import annotations
@@ -31,6 +32,7 @@ API_REVISION = "2026-05-20"
 ASPECT_RATIO = "16:9"
 IMAGE_SIZE = "1K"
 HEADERS_PREFIX = "assets/headers"
+JPEG_MIME = "image/jpeg"
 
 # Warm editorial swatches used for offline fixture placeholders.
 _PLACEHOLDER_COLORS = (
@@ -43,12 +45,14 @@ _PLACEHOLDER_COLORS = (
 )
 
 
-def header_relpath(day: str, slug: str) -> str:
-    return f"{HEADERS_PREFIX}/{day}/{slug}.png"
+def header_relpath(day: str, slug: str, ext: str = ".jpg") -> str:
+    if not ext.startswith("."):
+        ext = f".{ext}"
+    return f"{HEADERS_PREFIX}/{day}/{slug}{ext}"
 
 
-def header_file(day: str, slug: str) -> Path:
-    return DOCS_DIR / header_relpath(day, slug)
+def header_file(day: str, slug: str, ext: str = ".jpg") -> Path:
+    return DOCS_DIR / header_relpath(day, slug, ext)
 
 
 def image_model() -> str:
@@ -72,41 +76,57 @@ def try_write_header(post: Post, model: str | None = None) -> str | None:
     """Generate and save a header image. Returns the site-relative path, or None."""
     prompt = header_prompt(post.title, post.excerpt(limit=360))
     try:
-        png = generate_png(prompt, model)
+        data = generate_image(prompt, model)
+        ext = extension_for(data)
+        path = save_image(post.date, post.slug, data, ext)
     except (httpx.HTTPError, RuntimeError, ValueError, OSError) as exc:
         log.warning("Header image failed for %s: %s", post.slug, exc)
         return None
-    path = save_png(post.date, post.slug, png)
-    rel = header_relpath(post.date, post.slug)
+    rel = header_relpath(post.date, post.slug, ext)
     log.info("Wrote header %s", path)
     return rel
 
 
-def generate_png(prompt: str, model: str | None = None) -> bytes:
+def generate_image(prompt: str, model: str | None = None) -> bytes:
+    """Fetch image bytes. generateContent first; Interactions (JPEG) on any failure."""
     key = require_api_key()
     model = (model or image_model()).strip() or DEFAULT_IMAGE_MODEL
     try:
-        payload = _interactions_request(key, model, prompt)
-    except httpx.HTTPStatusError as exc:
-        if exc.response.status_code not in {404, 405, 501}:
-            raise
-        log.warning(
-            "Interactions image API returned %s; trying generateContent",
-            exc.response.status_code,
-        )
         payload = _generate_content_request(key, model, prompt)
-    return extract_image_bytes(payload)
+        return extract_image_bytes(payload)
+    except (httpx.HTTPError, RuntimeError) as primary_exc:
+        log.warning(
+            "generateContent image API failed (%s); trying Interactions",
+            primary_exc,
+        )
+        try:
+            payload = _interactions_request(key, model, prompt)
+            return extract_image_bytes(payload)
+        except (httpx.HTTPError, RuntimeError) as fallback_exc:
+            raise RuntimeError(
+                f"image generation failed (generateContent: {primary_exc}; "
+                f"Interactions: {fallback_exc})"
+            ) from fallback_exc
 
 
-def save_png(day: str, slug: str, png: bytes) -> Path:
-    path = header_file(day, slug)
+def save_image(day: str, slug: str, data: bytes, ext: str | None = None) -> Path:
+    ext = ext or extension_for(data)
+    path = header_file(day, slug, ext)
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_bytes(png)
+    path.write_bytes(data)
     return path
 
 
+def extension_for(data: bytes) -> str:
+    if data.startswith(b"\x89PNG"):
+        return ".png"
+    if data.startswith(b"\xff\xd8"):
+        return ".jpg"
+    raise ValueError("Unsupported image bytes (not JPEG or PNG)")
+
+
 def extract_image_bytes(payload: dict) -> bytes:
-    """Pull PNG/JPEG bytes from an Interactions or generateContent JSON body."""
+    """Pull JPEG/PNG bytes from a generateContent or Interactions JSON body."""
     image = payload.get("output_image")
     if isinstance(image, dict) and image.get("data"):
         return _decode_image(image["data"])
@@ -139,27 +159,6 @@ def write_placeholder_png(path: Path, seed: str) -> Path:
     return path
 
 
-def _interactions_request(key: str, model: str, prompt: str) -> dict:
-    payload = {
-        "model": model,
-        "input": [{"type": "text", "text": prompt}],
-        "response_format": {
-            "type": "image",
-            "mime_type": "image/png",
-            "aspect_ratio": ASPECT_RATIO,
-            "image_size": IMAGE_SIZE,
-        },
-    }
-    headers = {
-        "x-goog-api-key": key,
-        "Content-Type": "application/json",
-        "Api-Revision": API_REVISION,
-    }
-    response = httpx.post(INTERACTIONS_URL, headers=headers, json=payload, timeout=120)
-    response.raise_for_status()
-    return response.json()
-
-
 def _generate_content_request(key: str, model: str, prompt: str) -> dict:
     url = GENERATE_CONTENT_URL.format(model=model)
     payload = {
@@ -170,6 +169,27 @@ def _generate_content_request(key: str, model: str, prompt: str) -> dict:
         },
     }
     response = httpx.post(url, params={"key": key}, json=payload, timeout=120)
+    response.raise_for_status()
+    return response.json()
+
+
+def _interactions_request(key: str, model: str, prompt: str) -> dict:
+    payload = {
+        "model": model,
+        "input": [{"type": "text", "text": prompt}],
+        "response_format": {
+            "type": "image",
+            "mime_type": JPEG_MIME,
+            "aspect_ratio": ASPECT_RATIO,
+            "image_size": IMAGE_SIZE,
+        },
+    }
+    headers = {
+        "x-goog-api-key": key,
+        "Content-Type": "application/json",
+        "Api-Revision": API_REVISION,
+    }
+    response = httpx.post(INTERACTIONS_URL, headers=headers, json=payload, timeout=120)
     response.raise_for_status()
     return response.json()
 

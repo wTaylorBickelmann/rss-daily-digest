@@ -14,7 +14,7 @@ Keep these areas in separate modules. Do not collapse them to save files.
 | --- | --- | --- |
 | Feeds | `digest/feeds.py` | RSS/Atom fetch, item filter, skip-on-error |
 | Gemini | `digest/gemini.py` | API key check, prompt, HTTP call |
-| Images | `digest/images.py` | Header-image prompt, Gemini image API, save PNG |
+| Images | `digest/images.py` | Header-image prompt, Gemini image API, save JPEG |
 | Posts | `digest/posts.py` | Markdown + YAML front matter |
 | Site | `digest/site.py` | Static HTML/CSS into `docs/` |
 | Pipeline | `digest/pipeline.py` | `fetch` / `summarize` / `build` / `run` |
@@ -26,6 +26,7 @@ Keep these areas in separate modules. Do not collapse them to save files.
 - Missing `GEMINI_API_KEY` during `summarize` or `run`: exit with a clear message.
 - One RSS feed or one Gemini call failing: log a warning and continue.
 - Header-image generation failing for one post: log a warning and still publish the text post.
+- Live Gemini headers are JPEG (`.jpg`). Fixture placeholders may remain PNG.
 - Never hardcode secrets. Header images use the same `GEMINI_API_KEY` (optional `GEMINI_IMAGE_MODEL`).
 
 ## Site
