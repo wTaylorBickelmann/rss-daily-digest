@@ -4,7 +4,7 @@ Daily Gemini summaries from configured RSS sources, published as blog posts on G
 
 ## What you get
 
-- `feeds.yaml` — a starter list of tech, news, and research RSS feeds.
+- `feeds.yaml` — a starter list of data-science RSS feeds (arXiv cs.LG, Towards Data Science, KDnuggets, Hugging Face, Lil’Log, Sebastian Raschka).
 - A Python pipeline that fetches new items, asks Gemini to write **one blog post per feed per day**, and builds a static site.
 - GitHub Actions: a noon-UTC cron job plus a CI smoke build that **does not** call Gemini.
 - GitHub Pages from the `/docs` folder on `main`.
@@ -89,7 +89,7 @@ feeds:
 
 Never commit a key. The client reads **only** the environment (and a local `.env` via python-dotenv).
 
-**Local:** copy `.env.example` to `.env` and set `GEMINI_API_KEY=...`. Optional: `GEMINI_MODEL=gemini-2.5-flash`.
+**Local:** copy `.env.example` to `.env` and set `GEMINI_API_KEY=...`. Optional: `GEMINI_MODEL=gemini-3.6-flash` (also the default in `feeds.yaml`).
 
 **GitHub Actions:** repo **Settings → Secrets and variables → Actions → New repository secret**. Name it exactly `GEMINI_API_KEY`. The daily workflow refuses to start if the secret is empty.
 

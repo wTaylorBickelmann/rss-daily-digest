@@ -3,58 +3,38 @@
 
 site:
   title: Daily Digest
-  tagline: One blog post per source, written from that day’s RSS.
+  tagline: Data science digests from RSS, one post per source per day.
 
 max_items: 12
-model: gemini-2.5-flash
+model: gemini-3.6-flash
 
 feeds:
-  - id: hacker-news
-    name: Hacker News
-    url: https://hnrss.org/frontpage
-    homepage: https://news.ycombinator.com
+  - id: arxiv-cs-lg
+    name: arXiv cs.LG
+    url: https://rss.arxiv.org/rss/cs.LG
+    homepage: https://arxiv.org/list/cs.LG/recent
 
-  - id: arxiv-cs-ai
-    name: arXiv cs.AI
-    url: https://rss.arxiv.org/rss/cs.AI
-    homepage: https://arxiv.org/list/cs.AI/recent
+  - id: towards-data-science
+    name: Towards Data Science
+    url: https://towardsdatascience.com/feed
+    homepage: https://towardsdatascience.com
 
-  - id: the-verge
-    name: The Verge
-    url: https://www.theverge.com/rss/index.xml
-    homepage: https://www.theverge.com
+  - id: kdnuggets
+    name: KDnuggets
+    url: https://www.kdnuggets.com/feed
+    homepage: https://www.kdnuggets.com
 
-  - id: npr-tech
-    name: NPR Technology
-    url: https://feeds.npr.org/1019/rss.xml
-    homepage: https://www.npr.org/sections/technology/
+  - id: huggingface-blog
+    name: Hugging Face Blog
+    url: https://huggingface.co/blog/feed.xml
+    homepage: https://huggingface.co/blog
 
-  - id: bbc-tech
-    name: BBC Technology
-    url: https://feeds.bbci.co.uk/news/technology/rss.xml
-    homepage: https://www.bbc.com/news/technology
+  - id: lil-log
+    name: Lil’Log
+    url: https://lilianweng.github.io/posts/index.xml
+    homepage: https://lilianweng.github.io
 
-  - id: lwn
-    name: LWN.net
-    url: https://lwn.net/headlines/rss
-    homepage: https://lwn.net
-
-  - id: github-blog
-    name: GitHub Blog
-    url: https://github.blog/feed/
-    homepage: https://github.blog
-
-  - id: simon-willison
-    name: Simon Willison’s Weblog
-    url: https://simonwillison.net/atom.xml
-    homepage: https://simonwillison.net
-
-  - id: quanta
-    name: Quanta Magazine
-    url: https://api.quantamagazine.org/feed/
-    homepage: https://www.quantamagazine.org
-
-  - id: mit-computing
-    name: MIT News — Computing
-    url: https://news.mit.edu/rss/topic/computing
-    homepage: https://news.mit.edu/topic/computing
+  - id: sebastian-raschka
+    name: Sebastian Raschka
+    url: https://sebastianraschka.com/rss_feed.xml
+    homepage: https://sebastianraschka.com

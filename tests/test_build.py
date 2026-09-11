@@ -23,6 +23,23 @@ class ConfigTests(unittest.TestCase):
     def test_site_title(self):
         self.assertTrue(load_site().title)
 
+    def test_data_science_feeds_and_model(self):
+        ids = {feed.id for feed in load_feeds()}
+        self.assertEqual(
+            ids,
+            {
+                "arxiv-cs-lg",
+                "towards-data-science",
+                "kdnuggets",
+                "huggingface-blog",
+                "lil-log",
+                "sebastian-raschka",
+            },
+        )
+        env = {k: v for k, v in os.environ.items() if k != "GEMINI_MODEL"}
+        with patch.dict(os.environ, env, clear=True):
+            self.assertEqual(load_site().model, "gemini-3.6-flash")
+
 
 class PostTests(unittest.TestCase):
     def test_fixture_posts_parse(self):
