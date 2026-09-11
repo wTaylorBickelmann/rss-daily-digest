@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Not found — Daily Digest</title>
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body data-root="./">
+  <header class="masthead">
+    <div class="masthead-inner">
+      <p class="brand"><a href="./">Daily Digest</a></p>
+      <p class="tagline">One blog post per source, written from that day’s RSS.</p>
+      <form class="date-go" role="search" action="./dates/" method="get">
+        <label for="digest-date">Date</label>
+        <input id="digest-date" name="date" data-date-picker type="date" value="">
+        <noscript>
+          <button type="submit">Browse dates</button>
+        </noscript>
+      </form>
+    </div>
+  </header>
+  <main>
+    
+<section class="intro" data-404>
+  <h1>No digest for that address</h1>
+  <p>Use the date field, or open the <a id="dates-link" href="./dates/">date index</a>. Missing days use <code>/YYYY-MM-DD/</code>.</p>
+  <p><a id="home-link" href="./">Home</a></p>
+</section>
+
+  </main>
+  <footer>
+    <nav>
+      <a href="./">Home</a>
+      <a href="./dates/">All dates</a>
+    </nav>
+    <p>Summaries are generated from public RSS feeds. Follow original links for the full stories.</p>
+  </footer>
+  <script src="./assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+# Site chrome plus the RSS sources to digest each day.
+# Add or remove entries freely: id (url slug), name, url, optional homepage.
+
+site:
+  title: Daily Digest
+  tagline: One blog post per source, written from that day’s RSS.
+
+max_items: 12
+model: gemini-2.5-flash
+
+feeds:
+  - id: hacker-news
+    name: Hacker News
+    url: https://hnrss.org/frontpage
+    homepage: https://news.ycombinator.com
+
+  - id: arxiv-cs-ai
+    name: arXiv cs.AI
+    url: https://rss.arxiv.org/rss/cs.AI
+    homepage: https://arxiv.org/list/cs.AI/recent
+
+  - id: the-verge
+    name: The Verge
+    url: https://www.theverge.com/rss/index.xml
+    homepage: https://www.theverge.com
+
+  - id: npr-tech
+    name: NPR Technology
+    url: https://feeds.npr.org/1019/rss.xml
+    homepage: https://www.npr.org/sections/technology/
+
+  - id: bbc-tech
+    name: BBC Technology
+    url: https://feeds.bbci.co.uk/news/technology/rss.xml
+    homepage: https://www.bbc.com/news/technology
+
+  - id: lwn
+    name: LWN.net
+    url: https://lwn.net/headlines/rss
+    homepage: https://lwn.net
+
+  - id: github-blog
+    name: GitHub Blog
+    url: https://github.blog/feed/
+    homepage: https://github.blog
+
+  - id: simon-willison
+    name: Simon Willison’s Weblog
+    url: https://simonwillison.net/atom.xml
+    homepage: https://simonwillison.net
+
+  - id: quanta
+    name: Quanta Magazine
+    url: https://api.quantamagazine.org/feed/
+    homepage: https://www.quantamagazine.org
+
+  - id: mit-computing
+    name: MIT News — Computing
+    url: https://news.mit.edu/rss/topic/computing
+    homepage: https://news.mit.edu/topic/computing

@@ -1,0 +1,38 @@
+# Smoke: build the static site from fixture posts. Does not call Gemini.
+
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install
+        run: pip install -e .
+
+      - name: Build site from fixtures (no GEMINI_API_KEY)
+        run: python -m digest build
+
+      - name: Check Pages layout
+        run: |
+          test -f docs/index.html
+          test -f docs/dates.json
+          test -f docs/2026-09-10/index.html
+          test -f docs/2026-09-09/index.html
+          grep -q "digest-date" docs/index.html
+
+      - name: Tests
+        run: python -m unittest discover -s tests -v

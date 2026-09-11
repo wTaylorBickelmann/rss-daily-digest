@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }} — {{ site.title }}{% endblock %}
+{% block content %}
+<article class="post">
+  <p class="kicker">
+    {% if post.source_url %}
+    <a href="{{ post.source_url }}">{{ post.source }}</a>
+    {% else %}
+    {{ post.source }}
+    {% endif %}
+  </p>
+  <h1>{{ post.title }}</h1>
+  <p class="meta">
+    <time datetime="{{ post.date }}">{{ post.date|longdate }}</time>
+    · <a href="{{ root }}{{ post.date }}/">That day’s posts</a>
+  </p>
+  <div class="body">
+    {{ post.body | md }}
+  </div>
+  {% if post.source_url %}
+  <p class="source-note">Original feed: <a href="{{ post.source_url }}">{{ post.source }}</a></p>
+  {% endif %}
+</article>
+{% endblock %}

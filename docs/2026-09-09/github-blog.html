@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Actions, Pages, and a reminder that YAML is still load-bearing — Daily Digest</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root="../">
+  <header class="masthead">
+    <div class="masthead-inner">
+      <p class="brand"><a href="../">Daily Digest</a></p>
+      <p class="tagline">One blog post per source, written from that day’s RSS.</p>
+      <form class="date-go" role="search" action="../dates/" method="get">
+        <label for="digest-date">Date</label>
+        <input id="digest-date" name="date" data-date-picker type="date" value="2026-09-09">
+        <noscript>
+          <button type="submit">Browse dates</button>
+        </noscript>
+      </form>
+    </div>
+  </header>
+  <main>
+    
+<article class="post">
+  <p class="kicker">
+    
+    <a href="https://github.blog">GitHub Blog</a>
+    
+  </p>
+  <h1>Actions, Pages, and a reminder that YAML is still load-bearing</h1>
+  <p class="meta">
+    <time datetime="2026-09-09">Wednesday, 09 September 2026</time>
+    · <a href="../2026-09-09/">That day’s posts</a>
+  </p>
+  <div class="body">
+    <p>GitHub’s blog spent yesterday on the unglamorous parts of shipping: Actions runners, Pages deployment, and a security note that will matter more to bot authors than to README readers.</p>
+<p>If you run a static site from a repository, the Pages piece is the one to open. It restates the branch-versus-Actions choice without pretending they are equivalent — <code>/docs</code> on <code>main</code> is still the least moving parts if your pipeline already commits HTML.</p>
+<h2>Stories</h2>
+<ul>
+<li><a href="https://github.blog/">Deploying Pages from what you already committed</a> — Branch source, <code>/docs</code> folder, no extra artifact workflow required.</li>
+<li><a href="https://github.blog/">Workflow permissions, restated</a> — <code>contents: write</code> is enough to push generated posts; add <code>pages: write</code> only if you use <code>actions/deploy-pages</code>.</li>
+<li><a href="https://github.blog/">Secrets are not variables</a> — A gentle prod to put <code>GEMINI_API_KEY</code> in Actions secrets, not in the repo.</li>
+</ul>
+  </div>
+  
+  <p class="source-note">Original feed: <a href="https://github.blog">GitHub Blog</a></p>
+  
+</article>
+
+  </main>
+  <footer>
+    <nav>
+      <a href="../">Home</a>
+      <a href="../dates/">All dates</a>
+    </nav>
+    <p>Summaries are generated from public RSS feeds. Follow original links for the full stories.</p>
+  </footer>
+  <script src="../assets/app.js"></script>
+</body>
+</html>
