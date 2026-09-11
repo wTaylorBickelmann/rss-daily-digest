@@ -142,13 +142,13 @@ h1, h2, h3 {
 }
 
 .day-tease .thumb-link {
-  flex: 0 0 5.5rem;
+  flex: 0 0 6.4rem;
 }
 
 .day-tease .thumb {
   display: block;
-  width: 5.5rem;
-  height: 3.1rem;
+  width: 6.4rem;
+  height: 3.6rem;
   object-fit: cover;
   border: 1px solid var(--ink);
   background: #e6dcc4;

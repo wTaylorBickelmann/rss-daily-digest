@@ -198,20 +198,29 @@ def _decode_image(data: str) -> bytes:
     return raw
 
 
-def _landscape_placeholder(width: int, height: int, paper: tuple[int, int, int],
-                           ink: tuple[int, int, int], accent: tuple[int, int, int]) -> bytes:
+def _landscape_placeholder(
+    width: int,
+    height: int,
+    paper: tuple[int, int, int],
+    ink: tuple[int, int, int],
+    accent: tuple[int, int, int],
+) -> bytes:
+    field = _mix(paper, ink, 0.22)
+    gutter = max(width // 8, 24)
+    top = max(height // 9, 16)
+    foot = max(height // 7, 20)
     rows: list[bytes] = []
-    band = max(height // 7, 8)
-    rule = max(height // 36, 3)
     for y in range(height):
         row = bytearray()
         for x in range(width):
-            if y < band:
-                color = ink if y > band - rule else _mix(paper, ink, y / band)
-            elif y > height - band:
-                color = accent if y < height - band + rule else _mix(paper, accent, (height - y) / band)
+            if x < gutter:
+                color = ink if y < height - foot else accent
+            elif y < top:
+                color = _mix(ink, paper, y / top)
+            elif y > height - foot:
+                color = accent if y > height - foot + 4 else _mix(field, accent, 0.55)
             else:
-                color = paper
+                color = field
             row.extend(color)
         rows.append(b"\x00" + bytes(row))
     return _png_rgb(width, height, b"".join(rows))
