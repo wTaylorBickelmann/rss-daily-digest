@@ -4,6 +4,7 @@ date: 2026-09-09
 source: MIT News — Computing
 source_url: https://news.mit.edu/topic/computing
 slug: mit-computing
+header_image: assets/headers/2026-09-09/mit-computing.png
 ---
 
 MIT’s computing topic feed was campus-local in the best way: a chip design that exists because a student needed it, a climate model that finally fits on a machine people can book, and a robotics demo that is more gait than press release.

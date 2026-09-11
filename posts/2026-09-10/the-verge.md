@@ -4,6 +4,7 @@ date: 2026-09-10
 source: The Verge
 source_url: https://www.theverge.com
 slug: the-verge
+header_image: assets/headers/2026-09-10/the-verge.png
 ---
 
 Hardware news led: a camera stack incremental enough that the article had to work to explain why it matters, plus a follow-up on who actually ships the sensors. Policy coverage stayed in the EU–US slipstream, with app-store sideloading treated as a shipping checklist rather than a thought experiment.

@@ -14,14 +14,15 @@ Daily Gemini summaries from configured RSS sources, published as blog posts on G
 ```
 feeds.yaml  →  digest.feeds     fetch RSS/Atom
             →  digest.gemini    one summary per feed
+            →  digest.images    header PNG per post (Gemini image API)
             →  digest.posts     posts/YYYY-MM-DD/<feed-id>.md
-            →  digest.site      docs/  (HTML + CSS)
+            →  digest.site      docs/  (HTML + CSS + header images)
 ```
 
 | Command | Calls Gemini? | Writes |
 | --- | --- | --- |
 | `python -m digest fetch` | no | `data/YYYY-MM-DD/*.json` (gitignored cache) |
-| `python -m digest summarize` | yes | `posts/YYYY-MM-DD/*.md` |
+| `python -m digest summarize` | yes (text + header image) | `posts/YYYY-MM-DD/*.md` and `docs/assets/headers/YYYY-MM-DD/<slug>.png` |
 | `python -m digest build` | no | `docs/` |
 | `python -m digest run` | yes | fetch + summarize + build |
 
@@ -69,7 +70,9 @@ python -m digest run
 
 Equivalent: `digest fetch`, `digest summarize`, `digest build` after `pip install -e .`.
 
-If `GEMINI_API_KEY` is missing, `summarize` / `run` exit with instructions. A single feed that errors is skipped and logged; the rest of the run continues.
+If `GEMINI_API_KEY` is missing, `summarize` / `run` exit with instructions. A single feed that errors is skipped and logged; the rest of the run continues. If header-image generation fails for a post, a warning is logged and the text post is still published.
+
+`python -m digest build` never calls Gemini. Sample days in `posts/` ship with lightweight placeholder PNGs under `docs/assets/headers/` so the site still has hero images offline.
 
 ## Add or remove feeds
 
@@ -89,11 +92,19 @@ feeds:
 
 Never commit a key. The client reads **only** the environment (and a local `.env` via python-dotenv).
 
-**Local:** copy `.env.example` to `.env` and set `GEMINI_API_KEY=...`. Optional: `GEMINI_MODEL=...` to override the default (`gemini-3.6-flash` in `feeds.yaml` and the client). Do not use `gemini-2.0-flash` — it is retired and returns 404.
+**Local:** copy `.env.example` to `.env` and set `GEMINI_API_KEY=...`. Optional: `GEMINI_MODEL=...` to override the default (`gemini-3.6-flash` in `feeds.yaml` and the client). Optional: `GEMINI_IMAGE_MODEL=...` to override the header-image model (`gemini-3.1-flash-image`, Nano Banana 2). Do not use `gemini-2.0-flash` — it is retired and returns 404.
 
-**GitHub Actions:** repo **Settings → Secrets and variables → Actions → New repository secret**. Name it exactly `GEMINI_API_KEY`. The daily workflow refuses to start if the secret is empty. It uses `gemini-3.6-flash` unless `GEMINI_MODEL` is set.
+**GitHub Actions:** repo **Settings → Secrets and variables → Actions → New repository secret**. Name it exactly `GEMINI_API_KEY`. The daily workflow refuses to start if the secret is empty. It uses `gemini-3.6-flash` for text and `gemini-3.1-flash-image` for headers unless `GEMINI_MODEL` / `GEMINI_IMAGE_MODEL` are set.
 
 Get a key from [Google AI Studio](https://aistudio.google.com/apikey).
+
+## Header images
+
+After Gemini writes a post, `summarize` / `run` call Gemini again (same `GEMINI_API_KEY`) to generate a landscape 16:9 hero image. The PNG is saved at `docs/assets/headers/YYYY-MM-DD/<slug>.png` and the path is stored as `header_image` in the post’s YAML front matter. Post pages show it as a hero; day and home listings use a cropped thumbnail.
+
+The current default image model is `gemini-3.1-flash-image` (Nano Banana 2) via the Interactions API, with `generateContent` as a fallback. Override with `GEMINI_IMAGE_MODEL` or `image_model` in `feeds.yaml`. A failed image call is a warning only — the markdown post is still written.
+
+`python -m digest build` does not generate images. Fixture posts use committed placeholder PNGs so CI and local builds work without a key.
 
 ## Enable GitHub Pages
 
@@ -108,7 +119,7 @@ The daily workflow **commits** `posts/` and `docs/` back to the branch. That is 
 
 ## GitHub Actions
 
-- [`.github/workflows/daily.yml`](.github/workflows/daily.yml) — cron `0 12 * * *` (12:00 UTC) and **workflow_dispatch**. Installs the package, runs `python -m digest run` with `secrets.GEMINI_API_KEY` and model `gemini-3.6-flash` (from `feeds.yaml`; `gemini-2.0-flash` is retired). Commits if `posts/` or `docs/` changed. Permissions: `contents: write` (and `pages: write` reserved for a future artifact deploy).
+- [`.github/workflows/daily.yml`](.github/workflows/daily.yml) — cron `0 12 * * *` (12:00 UTC) and **workflow_dispatch**. Installs the package, runs `python -m digest run` with `secrets.GEMINI_API_KEY` and models from `feeds.yaml` (`gemini-3.6-flash` for text, `gemini-3.1-flash-image` for headers; `gemini-2.0-flash` is retired). Commits if `posts/` or `docs/` changed (including header PNGs). Permissions: `contents: write` (and `pages: write` reserved for a future artifact deploy).
 - [`.github/workflows/ci.yml`](.github/workflows/ci.yml) — on pull request and `main`: `python -m digest build` plus unit tests. No Gemini secret.
 
 ## Layout
@@ -117,8 +128,10 @@ The daily workflow **commits** `posts/` and `docs/` back to the branch. That is 
 feeds.yaml                 feed list + site title
 posts/YYYY-MM-DD/*.md      source of truth for the blog
 docs/                      GitHub Pages output (generated)
+docs/assets/headers/       Gemini (or placeholder) hero images
 digest/feeds.py            RSS
-digest/gemini.py           Gemini REST
+digest/gemini.py           Gemini REST (text)
+digest/images.py           Gemini image generation for post headers
 digest/posts.py            markdown posts
 digest/site.py             HTML build
 digest/pipeline.py         fetch / summarize / build / run

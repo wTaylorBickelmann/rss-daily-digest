@@ -11,9 +11,16 @@
   <ul class="post-list">
     {% for post in posts %}
     <li>
-      <p class="source">{{ post.source }}</p>
-      <h2><a href="{{ post.slug }}.html">{{ post.title }}</a></h2>
-      <p>{{ post.excerpt() }}</p>
+      {% if post.header_image %}
+      <a class="thumb-wrap" href="{{ post.slug }}.html">
+        <img src="{{ root }}{{ post.header_image }}" alt="" width="688" height="384" decoding="async">
+      </a>
+      {% endif %}
+      <div class="card-body">
+        <p class="source">{{ post.source }}</p>
+        <h2><a href="{{ post.slug }}.html">{{ post.title }}</a></h2>
+        <p>{{ post.excerpt() }}</p>
+      </div>
     </li>
     {% endfor %}
   </ul>

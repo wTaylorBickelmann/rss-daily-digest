@@ -42,7 +42,8 @@ jobs:
             exit 1
           fi
 
-      # Model comes from feeds.yaml (gemini-3.6-flash). gemini-2.0-flash is retired (404).
+      # Models come from feeds.yaml (gemini-3.6-flash text, gemini-3.1-flash-image headers).
+      # gemini-2.0-flash is retired (404). Header PNGs land in docs/assets/headers/.
       - name: Fetch, summarize, build
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}

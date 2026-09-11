@@ -22,6 +22,7 @@ class Post:
     source: str
     source_url: str
     body: str
+    header_image: str = ""
     path: Path | None = None
 
     def excerpt(self, limit: int = 220) -> str:
@@ -46,6 +47,8 @@ def write_post(post: Post) -> Path:
         "source_url": post.source_url,
         "slug": post.slug,
     }
+    if post.header_image:
+        meta["header_image"] = post.header_image
     body = (
         "---\n"
         f"{yaml.safe_dump(meta, sort_keys=False).strip()}\n"
@@ -72,6 +75,7 @@ def parse_post(path: Path) -> Post:
         source=str(meta.get("source") or ""),
         source_url=str(meta.get("source_url") or ""),
         body=match.group(2).strip(),
+        header_image=str(meta.get("header_image") or ""),
         path=path,
     )
 

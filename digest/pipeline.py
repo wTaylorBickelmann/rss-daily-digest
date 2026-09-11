@@ -12,6 +12,7 @@ import httpx
 from digest.config import DATA_DIR, Feed, load_feeds, load_site
 from digest.feeds import FeedItem, fetch_all, items_as_dicts
 from digest.gemini import digest_prompt, generate, require_api_key, split_title
+from digest.images import try_write_header
 from digest.posts import Post, write_post
 from digest.site import build as build_site
 
@@ -31,6 +32,7 @@ def summarize(day: date) -> list[Path]:
     require_api_key()
     site = load_site()
     log.info("Summarizing with Gemini model %s", site.model)
+    log.info("Header images with Gemini image model %s", site.image_model)
     feeds = {feed.id: feed for feed in load_feeds()}
     by_id = _load_fetch(day)
     if not by_id:
@@ -46,7 +48,7 @@ def summarize(day: date) -> list[Path]:
         if not items:
             log.info("No items for %s on %s — skipping", feed_id, day.isoformat())
             continue
-        path = _summarize_feed(feed, day, items, site.model)
+        path = _summarize_feed(feed, day, items, site.model, site.image_model)
         if path:
             written.append(path)
     return written
@@ -64,7 +66,9 @@ def run(day: date) -> None:
     build()
 
 
-def _summarize_feed(feed: Feed, day: date, items: list[dict], model: str) -> Path | None:
+def _summarize_feed(
+    feed: Feed, day: date, items: list[dict], model: str, image_model: str
+) -> Path | None:
     prompt = digest_prompt(feed.name, day.isoformat(), items)
     try:
         markdown = generate(prompt, model)
@@ -82,6 +86,10 @@ def _summarize_feed(feed: Feed, day: date, items: list[dict], model: str) -> Pat
     )
     path = write_post(post)
     log.info("Wrote %s", path)
+    rel = try_write_header(post, model=image_model)
+    if rel:
+        post.header_image = rel
+        path = write_post(post)
     return path
 
 

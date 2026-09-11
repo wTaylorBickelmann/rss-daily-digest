@@ -12,8 +12,15 @@
     <ul>
       {% for post in posts %}
       <li>
-        <span class="source">{{ post.source }}</span>
-        <a href="{{ root }}{{ day }}/{{ post.slug }}.html">{{ post.title }}</a>
+        {% if post.header_image %}
+        <a class="thumb-link" href="{{ root }}{{ day }}/{{ post.slug }}.html">
+          <img class="thumb" src="{{ root }}{{ post.header_image }}" alt="" width="176" height="99" decoding="async">
+        </a>
+        {% endif %}
+        <div>
+          <span class="source">{{ post.source }}</span>
+          <a href="{{ root }}{{ day }}/{{ post.slug }}.html">{{ post.title }}</a>
+        </div>
       </li>
       {% endfor %}
     </ul>

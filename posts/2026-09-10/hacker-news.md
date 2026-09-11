@@ -4,6 +4,7 @@ date: 2026-09-10
 source: Hacker News
 source_url: https://news.ycombinator.com
 slug: hacker-news
+header_image: assets/headers/2026-09-10/hacker-news.png
 ---
 
 The front page spent the day arguing about whether bigger context windows are a product or a trap. Threads that usually splinter into benchmarks kept coming back to the same practical question: what does a working engineer actually *keep* in a repo when the model can reread the world?

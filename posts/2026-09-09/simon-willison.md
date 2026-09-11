@@ -4,6 +4,7 @@ date: 2026-09-09
 source: Simon Willison’s Weblog
 source_url: https://simonwillison.net
 slug: simon-willison
+header_image: assets/headers/2026-09-09/simon-willison.png
 ---
 
 A dense day even by this weblog’s standards: one post on evaluation harnesses, one on RSS as an API, and a shorter note about prompting models to quote URLs they were actually given.
