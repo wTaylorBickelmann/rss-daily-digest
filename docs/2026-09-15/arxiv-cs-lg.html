@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Efficiency Trade-offs, Interpretability, and Domain Benchmarks in Machine Learning — Daily Digest</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root="../">
+  <header class="masthead">
+    <div class="masthead-inner">
+      <p class="brand"><a href="../">Daily Digest</a></p>
+      <p class="tagline">Data science digests from RSS, one post per source per day.</p>
+      <form class="date-go" role="search" action="../dates/" method="get">
+        <label for="digest-date">Date</label>
+        <input id="digest-date" name="date" data-date-picker type="date" value="2026-09-15">
+        <noscript>
+          <button type="submit">Browse dates</button>
+        </noscript>
+      </form>
+    </div>
+  </header>
+  <main>
+    
+<article class="post">
+  
+  <figure class="post-hero">
+    <img src="../assets/headers/2026-09-15/arxiv-cs-lg.jpg" alt="" width="1376" height="768" decoding="async">
+  </figure>
+  
+  <p class="kicker">
+    
+    <a href="https://arxiv.org/list/cs.LG/recent">arXiv cs.LG</a>
+    
+  </p>
+  <h1>Efficiency Trade-offs, Interpretability, and Domain Benchmarks in Machine Learning</h1>
+  <p class="meta">
+    <time datetime="2026-09-15">Tuesday, 15 September 2026</time>
+    · <a href="../2026-09-15/">That day’s posts</a>
+  </p>
+  <div class="body">
+    <p>Recent research highlights a strong focus on balancing model scale with computational efficiency across diverse deployment constraints. Studies benchmark lightweight classical baselines like Complement Naive Bayes against scaled large language models (LLMs) to clarify performance trade-offs, while frameworks like BudgetBench establish active-budget evaluation protocols to test local agent memory under strict per-call token limits. To address distillation challenges when compressing massive models, new adaptive reciprocal distillation approaches allow better knowledge transfer across large gaps between teacher and student sizes.</p>
+<p>At the structural level, researchers continue to probe interpretability, training dynamics, and security in neural models. A new clustering-based explanation framework, SPICE, addresses the challenge of polysemantic neurons without relying on architectural assumptions or rigid manual heuristics. In parallel, differentiable estimators of algorithmic complexity are being deployed to monitor training phenomena like grokking, while machine unlearning techniques are adapted to Large Audio-Language Models to mitigate privacy risks associated with speech data memorization. Other work investigates how training downstream models on datasets containing AI-generated content affects dataset decomposition and stability.</p>
+<p>Finally, domain-specific machine learning evaluations underscore the practical limits and requirements of specialized applications. Analyses of physics-informed neural networks expose systematic failure modes where good function-value fitting does not guarantee accurate derivative fidelity, and exact physical invariant testing in world models reveals surprisingly limited predictive benefits. Meanwhile, applied machine learning systems continue to demonstrate utility in time-critical operational domains, including early satellite collision prediction, health risk classification, and long-term climate tracking using decades of satellite observations of land art.</p>
+<h2>Covered Items</h2>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.13149">BudgetBench: A Budget-Tiered Protocol and Pilot Harness for Memory Strategy Evaluation in Local Large Language Model Agents</a>: BudgetBench introduces an active-budget evaluation harness to benchmark local LLM agent memory strategies under strict per-call token limitations.</li>
+<li><a href="https://arxiv.org/abs/2609.13171">A derivative-fidelity failure mode in physics-informed neural networks: strengthened benchmark evidence from function-value training</a>: This paper demonstrates that physics-informed neural networks trained purely on function values frequently fail to maintain accurate derivative fidelity.</li>
+<li><a href="https://arxiv.org/abs/2609.13182">Land Art as a Big-Data Climate Sensor</a>: Researchers analyze four decades of Landsat and Sentinel-2 satellite imagery of the Spiral Jetty land artwork to track Great Salt Lake water fluctuations as a climate indicator.</li>
+<li><a href="https://arxiv.org/abs/2609.13185">LLMs or Naive Bayes? Old Gems or New Ways</a>: A benchmarking study compares Complement Naive Bayes against zero-shot and few-shot LLMs across text classification tasks.</li>
+<li><a href="https://arxiv.org/abs/2609.13191">Early Prediction of Satellite Collision Probability Using a Hybrid TCN-Transformer Model for a CDM-Based Conjunction Analysis Framework</a>: A hybrid TCN-Transformer model predicts low Earth orbit satellite collision probabilities early using Conjunction Data Messages.</li>
+<li><a href="https://arxiv.org/abs/2609.13192">Evaluating LLM-Generated Rules for Heart Disease Prediction</a>: This study evaluates LLM-generated rule-based prediction systems against traditional machine learning classifiers on heart disease clinical data.</li>
+<li><a href="https://arxiv.org/abs/2609.13194">Diagnosing Faults in Reinforcement Learning Simulators and World Models with Canonical Polynomial Invariants</a>: Experiments on physical dynamical systems show that enforcing exact polynomial invariants yields minimal benefit for predictive accuracy in learned world models.</li>
+<li><a href="https://arxiv.org/abs/2609.13195">Machine Unlearning for Speech Question Answering in Large Audio-Language Models</a>: This paper presents a machine unlearning framework tailored to speech question answering in Large Audio-Language Models to remove sensitive memorized information.</li>
+<li><a href="https://arxiv.org/abs/2609.13197">Algorithmic Information Dynamics of Learning: A Certified, Differentiable Complexity Controller for Grokking</a>: The authors deploy a certified, differentiable complexity estimator to track and control algorithmic information dynamics during network grokking.</li>
+<li><a href="https://arxiv.org/abs/2609.13198">SPICE: Simple Polysemantic Feature Interpretation via Clustering-based Explanation</a>: SPICE presents an architecture-agnostic clustering method to interpret polysemantic neurons in neural networks without relying on manual heuristics.</li>
+<li><a href="https://arxiv.org/abs/2609.13199">Discovering and Preserving Category Correlation Knowledge via Adaptive Reciprocal Knowledge Distillation</a>: This work introduces an adaptive, two-way reciprocal knowledge distillation protocol to facilitate better knowledge transfer when teacher and student models differ significantly in scale.</li>
+<li><a href="https://arxiv.org/abs/2609.13201">Criticality in Dissimilar Decomposition and Undersampling of Random Datasets with Anomalies</a>: The authors analyze how AI-generated text and image data affect dataset decomposition and downstream performance when incorporated into training sets.</li>
+</ul>
+  </div>
+  
+  <p class="source-note">Original feed: <a href="https://arxiv.org/list/cs.LG/recent">arXiv cs.LG</a></p>
+  
+</article>
+
+  </main>
+  <footer>
+    <nav>
+      <a href="../">Home</a>
+      <a href="../dates/">All dates</a>
+    </nav>
+    <p>Summaries are generated from public RSS feeds. Follow original links for the full stories.</p>
+  </footer>
+  <script src="../assets/app.js"></script>
+</body>
+</html>
