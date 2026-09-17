@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Advances in Long-Context Inference, Model Auditing, and Mechanistic Analysis — Daily Digest</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root="../">
+  <header class="masthead">
+    <div class="masthead-inner">
+      <p class="brand"><a href="../">Daily Digest</a></p>
+      <p class="tagline">Data science digests from RSS, one post per source per day.</p>
+      <form class="date-go" role="search" action="../dates/" method="get">
+        <label for="digest-date">Date</label>
+        <input id="digest-date" name="date" data-date-picker type="date" value="2026-09-17">
+        <noscript>
+          <button type="submit">Browse dates</button>
+        </noscript>
+      </form>
+    </div>
+  </header>
+  <main>
+    
+<article class="post">
+  
+  <figure class="post-hero">
+    <img src="../assets/headers/2026-09-17/arxiv-cs-lg.jpg" alt="" width="1376" height="768" decoding="async">
+  </figure>
+  
+  <p class="kicker">
+    
+    <a href="https://arxiv.org/list/cs.LG/recent">arXiv cs.LG</a>
+    
+  </p>
+  <h1>Advances in Long-Context Inference, Model Auditing, and Mechanistic Analysis</h1>
+  <p class="meta">
+    <time datetime="2026-09-17">Thursday, 17 September 2026</time>
+    · <a href="../2026-09-17/">That day’s posts</a>
+  </p>
+  <div class="body">
+    <p>A central thread across today's research focuses on practical system efficiency during model training and inference. To address key-value (KV) cache bottlenecks in long-context models, "Fathom" dynamically adjusts key-scan precision per query over offloaded host memory, while another framework introduces tri-metric routing to balance context compression against latency on commodity GPUs. For model training, "Temperon" cuts computational costs by running standard SGD through the early training phases before handing off optimization to Sharpness-Aware Minimization (SAM) for the final annealing schedule.</p>
+<p>On the theoretical and diagnostic side, researchers are analyzing internal representations and verification methods. One study formalizes model update auditing by restricting risk-difference evaluations solely to inputs where the old and new models disagree. Another paper uses activation games to track where Transformers shift from memorization to generalization (grokking), while foundational work on matrix memories tests whether gradient descent can acquire the exact matrix ranks needed to compose key-value bindings. Additionally, a set of lecture notes summarizes pedagogical foundations for Physics-Informed Neural Networks (PINNs) and Neural Operators.</p>
+<p>Finally, applied frameworks address bias evaluation, control, and agent adaptation. In multimodal auditing, researchers isolate algorithmic valuation disparities in vision-language models from archival metadata confounders using museum data. For autonomous tasks, a training-free skill evolution framework allows GUI agents to dynamically adapt to shifting user interface layouts, and Diffusion Skill Discovery (DSD) provides a method for learning reusable motor skills for simulated physical tasks.</p>
+<h2>Papers</h2>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.17560">Pay Only for Disagreement: Certified No-Regression Verdicts for Model Updates with Matching Label-Complexity Bounds</a>: Proposes a certified framework for auditing risk differences during model updates by evaluating inputs where candidate models disagree.</li>
+<li><a href="https://arxiv.org/abs/2609.17564">Beyond Static RAG: An Adaptive, Tri-Metric Routing Framework for Efficient Long-Context Inference on Commodity GPUs</a>: Introduces an adaptive routing mechanism to avoid key-value cache contention and memory overhead when deploying retrieval-augmented generation on hardware like NVIDIA T4 GPUs.</li>
+<li><a href="https://arxiv.org/abs/2609.17571">Where Grokking Happens: Distributed Utility and Fourier Recoding Without a Module Switch</a>: Uses activation games to localize where Transformers transition from memorization to generalization during training.</li>
+<li><a href="https://arxiv.org/abs/2609.17572">Disentangling Algorithmic Bias from Archival Artifacts: A Controlled Audit of Vision-Language Model Valuation in Metropolitan Museum Archives</a>: Audits CLIP models on historical artwork metadata to separate direct algorithmic valuation biases from existing archival metadata confounders.</li>
+<li><a href="https://arxiv.org/abs/2609.17575">Temperon: Full-Time SAM Quality at a Third Less Wall-Clock</a>: Reduces training overhead by restricting Sharpness-Aware Minimization to the final phase of an epoch budget after initial SGD optimization.</li>
+<li><a href="https://arxiv.org/abs/2609.17594">When the Gradient Sees Rank: Provable Necessity, Causal Recruitment, and Composition in Trained Matrix Memories</a>: Analyzes whether gradient descent can effectively learn the necessary matrix rank required for linear key-value binding and composition.</li>
+<li><a href="https://arxiv.org/abs/2609.17595">Prior-Free Competitive Ratios for Improving Bandits: Scale, Curvature and Horizon Are Free, but Not Jointly Under Noise</a>: Explores theoretical competitive ratio bounds for multi-armed bandit algorithms operating on nondecreasing, concave reward curves under noise.</li>
+<li><a href="https://arxiv.org/abs/2609.17638">Lecture notes on Physics Informed Neural Networks, Neural Operators, and their applications</a>: Summarizes a doctoral-level curriculum covering Physics-Informed Neural Networks and Neural Operators for scientific computing tasks.</li>
+<li><a href="https://arxiv.org/abs/2609.17652">Fathom: Per-Query Read Depth for Sparse Decoding over Offloaded KV Caches</a>: Presents a decoding strategy that dynamically adjusts key-scan read depth per query to relieve memory traffic during long-context LLM inference.</li>
+<li><a href="https://arxiv.org/abs/2609.17653">Reflect, Revise, Reuse: Training-Free Skill Evolution for GUI Agents</a>: Details a skill framework enabling graphical user interface agents to adapt procedural knowledge without retraining when interface layouts change.</li>
+<li><a href="https://arxiv.org/abs/2609.17654">Regularized Least Squares Training of Quadratic Neural Networks with Applications to System Identification</a>: Derives closed-form approximate solutions and optimization lower bounds for regularized quadratic neural networks.</li>
+<li><a href="https://arxiv.org/abs/2609.17682">DSD: Learning Diverse and Reusable Motor Skills via Diffusion Skill Discovery</a>: Proposes a diffusion-based framework for learning diverse, task-agnostic motor skill repertoires in simulated agents.</li>
+</ul>
+  </div>
+  
+  <p class="source-note">Original feed: <a href="https://arxiv.org/list/cs.LG/recent">arXiv cs.LG</a></p>
+  
+</article>
+
+  </main>
+  <footer>
+    <nav>
+      <a href="../">Home</a>
+      <a href="../dates/">All dates</a>
+    </nav>
+    <p>Summaries are generated from public RSS feeds. Follow original links for the full stories.</p>
+  </footer>
+  <script src="../assets/app.js"></script>
+</body>
+</html>
