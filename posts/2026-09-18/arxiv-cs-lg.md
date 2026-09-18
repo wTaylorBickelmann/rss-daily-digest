@@ -1,0 +1,30 @@
+---
+title: Research Advances in Transformer Geometry, Generative Flow Guidance, and Distributed
+  Learning
+date: '2026-09-18'
+source: arXiv cs.LG
+source_url: https://arxiv.org/list/cs.LG/recent
+slug: arxiv-cs-lg
+header_image: assets/headers/2026-09-18/arxiv-cs-lg.jpg
+---
+
+Recent research in machine learning highlights structural constraints and specialized optimization techniques designed to make model training and inference more efficient. Key architectural advances focus on training dynamic systems, such as constraining transformer projection matrices to the Stiefel manifold via Riemannian optimization and introducing probe guidance to steer flow matching models using internal representations without incurring extra inference passes. Other architectural optimizations tackle scale, including block parallelism methods for long-context diffusion language models and non-equilibrium dynamical mean-field theory to explain how learning transitions recurrent neural networks from chaotic to stable task-oriented states.
+
+Concurrently, developments in algorithms and data processing address long-standing computation and privacy challenges in structured or distributed settings. To scale matrix decomposition for text processing, randomized SVD approximations enable fast spectral co-clustering of high-dimensional word-document matrices. For distributed systems dealing with client heterogeneity, personalized federated hierarchical Gaussian processes decouple shared global dynamics from client-specific deviations. Similarly, information retrieval systems benefit from dual-stage optimization algorithms built to generate query suggestion slates that balance individual relevance with overall intent coverage.
+
+At the application layer, researchers are adapting machine learning to edge execution, continuous health monitoring, and post-hoc model interpretability. Innovations like radio-frequency convolutional neural networks integrate directly with hardware to run models locally on resource-constrained devices without requiring auxiliary compute blocks. In clinical settings, wearable smart insoles paired with machine learning workflows offer continuous activity recognition to detect mobility changes in older adults, while interpretable tabular models evaluate the true predictive utility of inflammatory biomarkers for cognitive impairment. Finally, post-hoc explanation frameworks are improving through methods like FCx, which ensures generated counterfactual explanations are practical, constructive, and executable in real-world scenarios.
+
+## Included Papers
+
+* [Generative Query Suggestion via Intent Coverage and Query-Level Credit Assignment](https://arxiv.org/abs/2609.19209): Proposes a dual-stage optimization framework to generate query suggestion slates that cover distinct user search intents while maintaining individual query usefulness.
+* [Layer-wise Curriculum Learning for Efficient LLM Compression](https://arxiv.org/abs/2609.19213): Introduces a layer-wise curriculum learning approach to progressively transfer knowledge from teacher to student models during large language model compression.
+* [Block Parallelism For Efficient Distributed Long-Context Diffusion Language Model Training](https://arxiv.org/abs/2609.19242): Presents a block-parallel training framework designed to reduce distributed attention communication overhead and memory constraints in long-context diffusion language models.
+* [Randomized SVD Approximations for Spectral Co-Clustering of Word-Document Matrices](https://arxiv.org/abs/2609.19243): Develops randomized SVD approximations to accelerate normalized spectral co-clustering on high-dimensional bipartite text datasets.
+* [Radio-Frequency Convolutional Neural Networks](https://arxiv.org/abs/2609.19279): Explores running neural network models directly on edge devices by integrating radio-frequency designs without adding extra traditional computing hardware.
+* [Learning-Induced Dynamical Transition in Recurrent Neural Networks](https://arxiv.org/abs/2609.19288): Applies a non-equilibrium dynamical mean-field theory to explain how feedback-driven learning shifts recurrent neural network activity from chaotic states into stable, task-dependent behavior.
+* [Personalized Federated Hierarchical Gaussian Processes for Privacy-Preserving Modeling of Heterogeneous Distributed Systems](https://arxiv.org/abs/2609.19337): Formulates a federated modeling framework that decomposes latent functions into global, shared-kernel, and client-specific components to manage heterogeneous data across distributed clients.
+* [How to Guide Your Language Flow](https://arxiv.org/abs/2609.19356): Details a probe guidance technique that steers flow matching models using frozen internal diffusion states without requiring extra forward passes during inference.
+* [Smart Insole Human Activity Recognition for Continuous Monitoring in Elderly Care](https://arxiv.org/abs/2609.19359): Combines pressure and inertial signals from 16-sensor smart insoles with machine learning to identify posture transitions and walking stability in elderly patients.
+* [Stiefel Attention: When the Geometry of Transformer Projection Matrices Dominates Optimizer Choice---and When It Does Not](https://arxiv.org/abs/2609.19363): Evaluates constraining query and key projections in transformer attention mechanisms to the Stiefel manifold using Riemannian Adam optimization.
+* [Machine-Learning Assessment of the Predictive Value of Inflammatory Biomarkers for Cognitive Impairment in an Older Hispanic Adult Cohort](https://arxiv.org/abs/2609.19374): Investigates the actual predictive utility of inflammatory biomarkers for cognitive decline using interpretable machine learning models on clinical tabular data.
+* [FCx: An algorithm for finding Feasible Counterfactual Explanations](https://arxiv.org/abs/2609.19383): Introduces an algorithm for generating counterfactual explanations that strictly enforces feasibility constraints and avoids non-constructive input modifications.
