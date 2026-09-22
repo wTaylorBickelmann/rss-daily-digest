@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Advances in Model Distillation Rigor, Spatial Representation, and Efficient Inference — Daily Digest</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root="../">
+  <header class="masthead">
+    <div class="masthead-inner">
+      <p class="brand"><a href="../">Daily Digest</a></p>
+      <p class="tagline">Data science digests from RSS, one post per source per day.</p>
+      <form class="date-go" role="search" action="../dates/" method="get">
+        <label for="digest-date">Date</label>
+        <input id="digest-date" name="date" data-date-picker type="date" value="2026-09-22">
+        <noscript>
+          <button type="submit">Browse dates</button>
+        </noscript>
+      </form>
+    </div>
+  </header>
+  <main>
+    
+<article class="post">
+  
+  <figure class="post-hero">
+    <img src="../assets/headers/2026-09-22/arxiv-cs-lg.jpg" alt="" width="1376" height="768" decoding="async">
+  </figure>
+  
+  <p class="kicker">
+    
+    <a href="https://arxiv.org/list/cs.LG/recent">arXiv cs.LG</a>
+    
+  </p>
+  <h1>Advances in Model Distillation Rigor, Spatial Representation, and Efficient Inference</h1>
+  <p class="meta">
+    <time datetime="2026-09-22">Tuesday, 22 September 2026</time>
+    · <a href="../2026-09-22/">That day’s posts</a>
+  </p>
+  <div class="body">
+    <p>Recent machine learning research from arXiv cs.LG highlights fundamental refinements in efficiency, experimental methodology, and domain-specific architectures. In model compression and optimization, studies introduce PRQuant to address low-bit quantization bottlenecks caused by activation outliers, alongside ZoAQ, which reduces query costs in zeroth-order optimization through query reuse. Methodological rigor also receives critical attention: research on selective on-policy distillation reveals that using a single shared learning rate across different selectors acts as a confounded variable rather than a neutral control, while analysis in hardware evaluation demonstrates that cross-device performance ranking correlation does not guarantee target feasibility under strict latency and energy budgets.</p>
+<p>Spatial modeling and environmental forecasting models are increasingly integrating physical constraints and inductive representations. StationPDE incorporates continuous surface PDE learning into discrete multi-station weather modeling to retain physical consistency, while SolarFlowRefiner utilizes refinement-aware flow matching to downscale coarse solar radiation fields. For human mobility analysis, new architectures establish distance-aware location embeddings capable of generalizing to unseen geographic regions, supported by deep representation learning techniques that infer activity purpose from passive location data.</p>
+<p>Finally, advancements in decision-making and applied safety emphasize robust execution and fairness. Researchers present state-estimation correction techniques designed to mitigate perception errors before they trigger unsafe control actions in autonomous systems. To improve long-horizon agents, novel methods extract compact, state-conditioned walkthroughs from sparse-reward trajectories that contain detours or failures. In clinical ML, fairness audits are applied to predictive models for medication-assisted opioid treatment to ensure equitable risk evaluation across patient demographics.</p>
+<h2>Included Papers</h2>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.22106">PRQuant: Permutation Residual Quantization for Low-Overhead Inference</a>: This paper proposes a permutation residual quantization approach to mitigate accuracy degradation caused by activation outliers during low-bit linear layer inference.</li>
+<li><a href="https://arxiv.org/abs/2609.22107">Generalized Multimodal Foundation Model</a>: The authors examine methods for enabling multimodal fusion models to generalize dynamically to unseen modalities and tasks beyond pre-defined input types.</li>
+<li><a href="https://arxiv.org/abs/2609.22108">Correcting Learning-based Perception for Safety</a>: The paper introduces a two-step state estimation correction framework to prevent machine learning perception errors from causing unsafe control outputs in autonomous systems.</li>
+<li><a href="https://arxiv.org/abs/2609.22109">A Shared Learning Rate Is Not a Neutral Control in Selective On-Policy Distillation</a>: This study demonstrates that holding learning rates fixed across different token selection methods in on-policy distillation introduces evaluation bias rather than serving as a neutral control.</li>
+<li><a href="https://arxiv.org/abs/2609.22113">Toward Fairness in Machine Learning Models for Predicting Treatment Retention and Premature Discontinuation in Medication for Opioid Use Disorder</a>: The authors investigate and address algorithmic fairness concerns in machine learning models used to predict patient retention in opioid use disorder treatment programs.</li>
+<li><a href="https://arxiv.org/abs/2609.22115">ZoAQ: Adaptive Zeroth-Order Querying via Query-Reuse Coupling</a>: This work presents an adaptive zeroth-order optimization technique that reduces function evaluation overhead by coupling perturbation query reuse with reliability checks.</li>
+<li><a href="https://arxiv.org/abs/2609.22117">LE4Mob: Towards Inductive, Distance-Aware and General-Purpose Location Embedding for Human Mobility Modelling</a>: The paper proposes an inductive location embedding approach that retains geographic distance constraints to represent unseen spatial locations in mobility modeling.</li>
+<li><a href="https://arxiv.org/abs/2609.22120">Success Leaves Detours: Learning Executable Walkthroughs for Long-Horizon Agents</a>: The authors introduce a framework for extracting compact, state-conditioned executable walkthroughs from noisy, sparse-reward agent trajectories.</li>
+<li><a href="https://arxiv.org/abs/2609.22121">Modelling daily activity patterns from mobile phone location data via deep representation learning</a>: This study leverages deep representation learning to infer human daily activity purposes from passive mobile phone location tracks and spatial contextual data.</li>
+<li><a href="https://arxiv.org/abs/2609.22122">Rank Portability Does Not Imply Feasibility Portability: Target-Specific Evaluation of Joint Hardware Constraints</a>: The paper demonstrates that high architectural rank correlation across hardware devices does not ensure that model selection transfers under joint latency and energy feasibility limits.</li>
+<li><a href="https://arxiv.org/abs/2609.22123">StationPDE: Station-Oriented Surface PDE Learning for Multi-Station Multivariate Weather Forecasting</a>: This work combines station-level surface partial differential equation learning with statistical models to improve physical consistency in multivariate weather forecasting.</li>
+<li><a href="https://arxiv.org/abs/2609.22126">SolarFlowRefiner: Refinement-Aware Flow Matching for Surface Solar Radiation Downscaling</a>: The paper presents a flow-matching model designed to downscale coarse reanalysis weather data into high-resolution surface solar radiation fields.</li>
+</ul>
+  </div>
+  
+  <p class="source-note">Original feed: <a href="https://arxiv.org/list/cs.LG/recent">arXiv cs.LG</a></p>
+  
+</article>
+
+  </main>
+  <footer>
+    <nav>
+      <a href="../">Home</a>
+      <a href="../dates/">All dates</a>
+    </nav>
+    <p>Summaries are generated from public RSS feeds. Follow original links for the full stories.</p>
+  </footer>
+  <script src="../assets/app.js"></script>
+</body>
+</html>
