@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Architectural Trade-offs and Scalability in AI Agent Systems — Daily Digest</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root="../">
+  <header class="masthead">
+    <div class="masthead-inner">
+      <p class="brand"><a href="../">Daily Digest</a></p>
+      <p class="tagline">Data science digests from RSS, one post per source per day.</p>
+      <form class="date-go" role="search" action="../dates/" method="get">
+        <label for="digest-date">Date</label>
+        <input id="digest-date" name="date" data-date-picker type="date" value="2026-09-27">
+        <noscript>
+          <button type="submit">Browse dates</button>
+        </noscript>
+      </form>
+    </div>
+  </header>
+  <main>
+    
+<article class="post">
+  
+  <figure class="post-hero">
+    <img src="../assets/headers/2026-09-27/towards-data-science.jpg" alt="" width="1376" height="768" decoding="async">
+  </figure>
+  
+  <p class="kicker">
+    
+    <a href="https://towardsdatascience.com">Towards Data Science</a>
+    
+  </p>
+  <h1>Architectural Trade-offs and Scalability in AI Agent Systems</h1>
+  <p class="meta">
+    <time datetime="2026-09-27">Sunday, 27 September 2026</time>
+    · <a href="../2026-09-27/">That day’s posts</a>
+  </p>
+  <div class="body">
+    <p>Modern AI system design increasingly requires balancing classical software architecture principles with the operational needs of autonomous agents and large language models. As engineering teams integrate language models deeper into enterprise infrastructure, they must navigate the friction between clean system abstraction and the contextual visibility required by automated tools.</p>
+<p>Recent developments highlight how traditional architectural boundaries can complicate agent execution. When systems are decoupled to enforce strong modularity, the implicit signals and contextual metadata that agents rely on for navigation are frequently obscured or deleted. Addressing these failures requires treating contextual visibility as an explicit structural design concern rather than a search or prompt engineering issue.</p>
+<p>At the same time, optimizing context retrieval for knowledge graphs requires separating fast operational execution from heavy cognitive processing. By assigning high-frequency graph decisions to calibrated decision models, systems can offload routine execution and reserve language models for open-ended generation, synthesis, and reasoning.</p>
+<ul>
+<li><a href="https://towardsdatascience.com/graphrag-with-typesafe-jev-a-system-one-approach-to-scalable-knowledge-graphs/">GraphRAG with TypeSafe Jev: A System One Approach to Scalable Knowledge Graphs</a> — This article details how delegating high-frequency graph operations to calibrated decision models allows language models to focus on complex reasoning and generation.</li>
+<li><a href="https://towardsdatascience.com/good-architecture-deletes-the-signals-your-agent-depends-on/">Good Architecture Deletes the Signals Your Agent Depends On</a> — This post examines how standard software abstraction boundaries can unintentionally eliminate the implicit signals AI agents rely on to complete tasks.</li>
+</ul>
+  </div>
+  
+  <p class="source-note">Original feed: <a href="https://towardsdatascience.com">Towards Data Science</a></p>
+  
+</article>
+
+  </main>
+  <footer>
+    <nav>
+      <a href="../">Home</a>
+      <a href="../dates/">All dates</a>
+    </nav>
+    <p>Summaries are generated from public RSS feeds. Follow original links for the full stories.</p>
+  </footer>
+  <script src="../assets/app.js"></script>
+</body>
+</html>
