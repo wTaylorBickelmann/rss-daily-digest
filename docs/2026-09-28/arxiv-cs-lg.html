@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thermal-Aware Inference, Optimization Dynamics, and Certified Learning Models — Daily Digest</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root="../">
+  <header class="masthead">
+    <div class="masthead-inner">
+      <p class="brand"><a href="../">Daily Digest</a></p>
+      <p class="tagline">Data science digests from RSS, one post per source per day.</p>
+      <form class="date-go" role="search" action="../dates/" method="get">
+        <label for="digest-date">Date</label>
+        <input id="digest-date" name="date" data-date-picker type="date" value="2026-09-28">
+        <noscript>
+          <button type="submit">Browse dates</button>
+        </noscript>
+      </form>
+    </div>
+  </header>
+  <main>
+    
+<article class="post">
+  
+  <figure class="post-hero">
+    <img src="../assets/headers/2026-09-28/arxiv-cs-lg.jpg" alt="" width="1376" height="768" decoding="async">
+  </figure>
+  
+  <p class="kicker">
+    
+    <a href="https://arxiv.org/list/cs.LG/recent">arXiv cs.LG</a>
+    
+  </p>
+  <h1>Thermal-Aware Inference, Optimization Dynamics, and Certified Learning Models</h1>
+  <p class="meta">
+    <time datetime="2026-09-28">Monday, 28 September 2026</time>
+    · <a href="../2026-09-28/">That day’s posts</a>
+  </p>
+  <div class="body">
+    <p>Recent research highlights the operational realities of executing models on constrained hardware and edge environments. To address local compute limitations, new work introduces thermal-aware reinforcement learning to dynamically route large language model queries across on-device, edge, and cloud tiers without triggering thermal instability on handheld devices. In a similar vein for edge devices, researchers presented a hardware-aware neural architecture search framework tailored for microcontrollers, using feasibility checks and a multi-stage search strategy to optimize TinyML models within strict physical constraints.</p>
+<p>Theoretical developments focus heavily on understanding training stability and model representations. Work on optimizer dynamics demonstrates why unclipped coordinate-wise AdaGrad can fail under generalized smoothness and heavy-tailed noise, establishing theoretical grounds for gradient clipping. Related research investigates negative preconditioning exponents in adaptive optimizers to analyze their interaction with global learning rates. For graph and physics-based architectures, authors introduced implicit neural sheaves to guarantee convergent test-time computation in implicit graph neural networks, alongside a staged depth training curriculum that explicitly learns and transfers representations in physics-informed neural networks.</p>
+<p>Methodological evaluation, algebraic analysis, and domain-specific applications round out recent contributions. One study critiques the practice of using scale-invariant metrics like cosine similarity to certify interpretability transfer under model quantization, establishing a method to measure noise floors instead. On the analytical side, researchers applied algebraic tools to establish theoretical frameworks for hidden layer features, while another framework combined variational neural networks with symbolic checks to certify exact mathematical constructions. Finally, domain applications evaluated offline policy evaluation for transitioning A/B tests to adaptive bandit designs, advection-aware graph neural networks for solar power ramp forecasting, and quantum-inspired sequence architectures for neutron monitor time-series prediction.</p>
+<h2>Covered Papers</h2>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.30270">HybridInfer: Thermal-Aware Reinforcement-Learning Tier Routing for On-Device, Edge, and Cloud LLM Inference</a>: Uses reinforcement learning to route LLM inference across device, edge, and cloud layers while respecting hardware thermal constraints on local devices.</li>
+<li><a href="https://arxiv.org/abs/2609.30271">When the Preconditioning Exponent Turns Negative: Learning-Rate Coupling and Cross-Environment Generalization</a>: Examines the interaction between negative preconditioning exponents and global learning rates in adaptive optimizers across different environments.</li>
+<li><a href="https://arxiv.org/abs/2609.30272">ENAS: An Efficient Hardware-Aware Neural Architecture Search Framework for TinyML on Resource-Constrained Microcontrollers</a>: Proposes a neural architecture search framework that combines static feasibility checks and a three-stage hybrid search strategy for microcontroller deployment.</li>
+<li><a href="https://arxiv.org/abs/2609.30273">Offline Policy Evaluation as a decision support tool for designing Adaptive Experiments</a>: Evaluates how offline policy evaluation applied to static A/B test historical data can guide the design and deployment of adaptive contextual bandit experiments.</li>
+<li><a href="https://arxiv.org/abs/2609.30275">Cosine Similarity Is Not Evidence: Measuring the Noise Floor of Interpretability Transfer Under Quantization</a>: Shows the theoretical and practical limitations of using scale-invariant statistics like cosine similarity to certify that interpretability artifacts persist after network quantization.</li>
+<li><a href="https://arxiv.org/abs/2609.30276">Why Clipping Matters in AdaGrad? Toward a High-Probability Theory under Generalized Smoothness</a>: Provides theoretical analysis showing why gradient clipping is necessary for coordinate-wise AdaGrad stability under generalized smoothness and heavy-tailed noise.</li>
+<li><a href="https://arxiv.org/abs/2609.30277">Fixed Points Without Fixed Diffusion: Implicit Neural Sheaves for Convergent Test-Time Computation</a>: Introduces implicit neural sheaves to guarantee unique fixed points and convergent test-time message passing in implicit graph neural networks.</li>
+<li><a href="https://arxiv.org/abs/2609.30279">Neural Ideals and Neural Codes: An Algebraic Framework for Neural Network Classification and Feature Interpretation</a>: Develops an algebraic framework using concepts from commutative algebra and topology to analyze classification representations in hidden layers.</li>
+<li><a href="https://arxiv.org/abs/2609.30281">Seasonal and Quantum-inspired Models for Neutron Monitor Time Series Forecasting</a>: Evaluates deep sequence models, seasonal baselines, and quantum-inspired architectures on multi-horizon time series forecasting for cosmic ray data.</li>
+<li><a href="https://arxiv.org/abs/2609.30286">When Does Advection-Aware Graph Nowcasting Help? A Controlled Study of Distributed Solar Ramp Forecasting with a Self-Supervised Cloud-Motion Estimator</a>: Studies the performance conditions of advection-aware graph neural networks using cloud-motion estimation for short-term solar power ramp predictions.</li>
+<li><a href="https://arxiv.org/abs/2609.30296">NeuralCert: certified computational discovery of extremal mathematical constructions</a>: Presents a framework that combines neural continuous trial functions with spectral pruning and symbolic verification to certify exact mathematical constructions.</li>
+<li><a href="https://arxiv.org/abs/2609.30299">Staged Depth Training: A Representation Curriculum for PINNs</a>: Introduces a representation curriculum for physics-informed neural networks that progressively transfers explicitly learned representations across network depth.</li>
+</ul>
+  </div>
+  
+  <p class="source-note">Original feed: <a href="https://arxiv.org/list/cs.LG/recent">arXiv cs.LG</a></p>
+  
+</article>
+
+  </main>
+  <footer>
+    <nav>
+      <a href="../">Home</a>
+      <a href="../dates/">All dates</a>
+    </nav>
+    <p>Summaries are generated from public RSS feeds. Follow original links for the full stories.</p>
+  </footer>
+  <script src="../assets/app.js"></script>
+</body>
+</html>
