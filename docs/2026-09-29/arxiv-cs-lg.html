@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Advances in Machine Learning Evaluation, Compression, and Physical Grounding — Daily Digest</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root="../">
+  <header class="masthead">
+    <div class="masthead-inner">
+      <p class="brand"><a href="../">Daily Digest</a></p>
+      <p class="tagline">Data science digests from RSS, one post per source per day.</p>
+      <form class="date-go" role="search" action="../dates/" method="get">
+        <label for="digest-date">Date</label>
+        <input id="digest-date" name="date" data-date-picker type="date" value="2026-09-29">
+        <noscript>
+          <button type="submit">Browse dates</button>
+        </noscript>
+      </form>
+    </div>
+  </header>
+  <main>
+    
+<article class="post">
+  
+  <figure class="post-hero">
+    <img src="../assets/headers/2026-09-29/arxiv-cs-lg.jpg" alt="" width="1376" height="768" decoding="async">
+  </figure>
+  
+  <p class="kicker">
+    
+    <a href="https://arxiv.org/list/cs.LG/recent">arXiv cs.LG</a>
+    
+  </p>
+  <h1>Advances in Machine Learning Evaluation, Compression, and Physical Grounding</h1>
+  <p class="meta">
+    <time datetime="2026-09-29">Tuesday, 29 September 2026</time>
+    · <a href="../2026-09-29/">That day’s posts</a>
+  </p>
+  <div class="body">
+    <p>A key theme in recent research is the critical re-examination of how machine learning models are evaluated across complex temporal and physical domains. Standard metrics often mask failure modes that arise in practical deployments. For example, open-loop next-event accuracy fails to reveal compounding errors in closed-loop clinical trajectory simulations, while vibration sensor benchmarks can overestimate performance unless evaluated under strict held-out hardware splits. Similarly, assessing continual learning through long-horizon steady-state metrics provides a more realistic picture of model memory than short-term adaptation gains.</p>
+<p>Parallel to evaluation refinements, methods for reducing the computational footprint of large models continue to advance. Researchers are tackling resource constraints through targeted structural pruning and dynamic quantization techniques. Recent work leverages Orthogonal Matching Pursuit to prune expert networks in Mixture-of-Experts architectures while preserving inter-expert dependencies. On the hardware arithmetic side, product-aware deterministic rounding uses null-space reduction to limit dynamic quantization errors in matrix multiplication, while energy-aware Bayesian optimization explicitly factors energy expenditure into model optimization loops.</p>
+<p>Finally, domain-specific physics, kinematics, and biological mechanisms are increasingly being embedded into network architectures and learning rules. Neural operators augmented with domain principles, such as the film cooling superposition principle, improve generalization in mechanical design tasks. In spatial reasoning, deterministic kinematic predicates ground vision-language models to measurable traffic semantics, while biologically constrained rules leverage localized "silent" degrees of freedom to enable continual learning without requiring explicit offline replay phases.</p>
+<h2>Paper Summaries</h2>
+<ul>
+<li><a href="https://arxiv.org/abs/2609.31630">Replay in the Silent Degrees of Freedom: Continual Learning Without an Offline Phase</a>: This paper introduces a biologically inspired continual learning rule that uses local off-periods in silent network dimensions to consolidate memories without requiring dedicated offline phases.</li>
+<li><a href="https://arxiv.org/abs/2609.31631">OMP-MoE: Efficient Expert Pruning for Mixture-of-Experts LLMs via Orthogonal Matching Pursuit</a>: The authors present a training-free pruning technique using Orthogonal Matching Pursuit to reduce the memory footprint of Mixture-of-Experts models while accounting for inter-expert dependencies.</li>
+<li><a href="https://arxiv.org/abs/2609.31632">EEGAgentBench: Benchmarking LLM Agents on Short- and Long-Horizon EEG Analysis</a>: A new benchmark suite measures the ability of large language model agents to perform multi-step reasoning and tool use across short- and long-horizon EEG signal interpretation tasks.</li>
+<li><a href="https://arxiv.org/abs/2609.31633">Enhancing generalization in endwall film cooling prediction: Incorporating the superposition principle into transformer-based neural operators</a>: This study integrates the film cooling superposition principle into a transformer-based neural operator framework to improve generalization when predicting turbine endwall cooling layouts.</li>
+<li><a href="https://arxiv.org/abs/2609.31634">Symmetry-quotient Flatness and Generalization</a>: The authors establish a theoretical framework showing that stability and flatness in symmetry-quotient spaces imply input smoothness and improved model generalization.</li>
+<li><a href="https://arxiv.org/abs/2609.31635">What Next-Event Accuracy Cannot See: Closed-Loop Evaluation of Emergency Department Trajectory Simulators</a>: The study demonstrates that traditional next-event accuracy metrics fail to capture compounding autoregressive errors in clinical trajectory simulators, proposing a closed-loop evaluation framework instead.</li>
+<li><a href="https://arxiv.org/abs/2609.31636">Grounding Vision-Language Models in Driving Semantics: A Multi-Dataset Predicate Framework for Explainable Reasoning</a>: This paper proposes a deterministic predicate framework that grounds vision-language model reasoning in measurable geometric and kinematic driving data.</li>
+<li><a href="https://arxiv.org/abs/2609.31637">FIDAL: Diversity-Aware Federated Active Learning Under Real-World Distribution Shifts</a>: A federated active learning method addresses domain shifts, class imbalances, and out-of-distribution noise by incorporating diversity-aware sample selection across decentralized institutions.</li>
+<li><a href="https://arxiv.org/abs/2609.31638">Energy-aware frugal Bayesian optimization</a>: This work proposes a metric and acquisition function for Bayesian optimization that explicitly balances predictive performance against computational energy overhead.</li>
+<li><a href="https://arxiv.org/abs/2609.31639">When Does Domain Adaptation Help on Physical Vibration Sensors? A Held-Out-Bearing Study of Neural-Operator and Convolutional Models</a>: The authors re-evaluate bearing fault diagnosis models under strict held-out-bearing splits to provide a realistic assessment of domain adaptation on physical vibration sensors.</li>
+<li><a href="https://arxiv.org/abs/2609.31640">Measure Learning at Steady State: A BIRD-SQL Formula 1 Case Study</a>: The paper evaluates in-context continual learning over long-horizon tasks using a steady-state metric based on performance late in a shared-world sequence.</li>
+<li><a href="https://arxiv.org/abs/2609.31641">Product-Aware Deterministic Rounding for Quantized Matrix Multiplication</a>: The authors present a deterministic rounding strategy for matrix multiplication that uses null-space reduction to minimize quantization error across scalar interactions.</li>
+</ul>
+  </div>
+  
+  <p class="source-note">Original feed: <a href="https://arxiv.org/list/cs.LG/recent">arXiv cs.LG</a></p>
+  
+</article>
+
+  </main>
+  <footer>
+    <nav>
+      <a href="../">Home</a>
+      <a href="../dates/">All dates</a>
+    </nav>
+    <p>Summaries are generated from public RSS feeds. Follow original links for the full stories.</p>
+  </footer>
+  <script src="../assets/app.js"></script>
+</body>
+</html>

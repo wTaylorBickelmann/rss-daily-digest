@@ -1,0 +1,29 @@
+---
+title: Advances in Machine Learning Evaluation, Compression, and Physical Grounding
+date: '2026-09-29'
+source: arXiv cs.LG
+source_url: https://arxiv.org/list/cs.LG/recent
+slug: arxiv-cs-lg
+header_image: assets/headers/2026-09-29/arxiv-cs-lg.jpg
+---
+
+A key theme in recent research is the critical re-examination of how machine learning models are evaluated across complex temporal and physical domains. Standard metrics often mask failure modes that arise in practical deployments. For example, open-loop next-event accuracy fails to reveal compounding errors in closed-loop clinical trajectory simulations, while vibration sensor benchmarks can overestimate performance unless evaluated under strict held-out hardware splits. Similarly, assessing continual learning through long-horizon steady-state metrics provides a more realistic picture of model memory than short-term adaptation gains.
+
+Parallel to evaluation refinements, methods for reducing the computational footprint of large models continue to advance. Researchers are tackling resource constraints through targeted structural pruning and dynamic quantization techniques. Recent work leverages Orthogonal Matching Pursuit to prune expert networks in Mixture-of-Experts architectures while preserving inter-expert dependencies. On the hardware arithmetic side, product-aware deterministic rounding uses null-space reduction to limit dynamic quantization errors in matrix multiplication, while energy-aware Bayesian optimization explicitly factors energy expenditure into model optimization loops.
+
+Finally, domain-specific physics, kinematics, and biological mechanisms are increasingly being embedded into network architectures and learning rules. Neural operators augmented with domain principles, such as the film cooling superposition principle, improve generalization in mechanical design tasks. In spatial reasoning, deterministic kinematic predicates ground vision-language models to measurable traffic semantics, while biologically constrained rules leverage localized "silent" degrees of freedom to enable continual learning without requiring explicit offline replay phases.
+
+## Paper Summaries
+
+* [Replay in the Silent Degrees of Freedom: Continual Learning Without an Offline Phase](https://arxiv.org/abs/2609.31630): This paper introduces a biologically inspired continual learning rule that uses local off-periods in silent network dimensions to consolidate memories without requiring dedicated offline phases.
+* [OMP-MoE: Efficient Expert Pruning for Mixture-of-Experts LLMs via Orthogonal Matching Pursuit](https://arxiv.org/abs/2609.31631): The authors present a training-free pruning technique using Orthogonal Matching Pursuit to reduce the memory footprint of Mixture-of-Experts models while accounting for inter-expert dependencies.
+* [EEGAgentBench: Benchmarking LLM Agents on Short- and Long-Horizon EEG Analysis](https://arxiv.org/abs/2609.31632): A new benchmark suite measures the ability of large language model agents to perform multi-step reasoning and tool use across short- and long-horizon EEG signal interpretation tasks.
+* [Enhancing generalization in endwall film cooling prediction: Incorporating the superposition principle into transformer-based neural operators](https://arxiv.org/abs/2609.31633): This study integrates the film cooling superposition principle into a transformer-based neural operator framework to improve generalization when predicting turbine endwall cooling layouts.
+* [Symmetry-quotient Flatness and Generalization](https://arxiv.org/abs/2609.31634): The authors establish a theoretical framework showing that stability and flatness in symmetry-quotient spaces imply input smoothness and improved model generalization.
+* [What Next-Event Accuracy Cannot See: Closed-Loop Evaluation of Emergency Department Trajectory Simulators](https://arxiv.org/abs/2609.31635): The study demonstrates that traditional next-event accuracy metrics fail to capture compounding autoregressive errors in clinical trajectory simulators, proposing a closed-loop evaluation framework instead.
+* [Grounding Vision-Language Models in Driving Semantics: A Multi-Dataset Predicate Framework for Explainable Reasoning](https://arxiv.org/abs/2609.31636): This paper proposes a deterministic predicate framework that grounds vision-language model reasoning in measurable geometric and kinematic driving data.
+* [FIDAL: Diversity-Aware Federated Active Learning Under Real-World Distribution Shifts](https://arxiv.org/abs/2609.31637): A federated active learning method addresses domain shifts, class imbalances, and out-of-distribution noise by incorporating diversity-aware sample selection across decentralized institutions.
+* [Energy-aware frugal Bayesian optimization](https://arxiv.org/abs/2609.31638): This work proposes a metric and acquisition function for Bayesian optimization that explicitly balances predictive performance against computational energy overhead.
+* [When Does Domain Adaptation Help on Physical Vibration Sensors? A Held-Out-Bearing Study of Neural-Operator and Convolutional Models](https://arxiv.org/abs/2609.31639): The authors re-evaluate bearing fault diagnosis models under strict held-out-bearing splits to provide a realistic assessment of domain adaptation on physical vibration sensors.
+* [Measure Learning at Steady State: A BIRD-SQL Formula 1 Case Study](https://arxiv.org/abs/2609.31640): The paper evaluates in-context continual learning over long-horizon tasks using a steady-state metric based on performance late in a shared-world sequence.
+* [Product-Aware Deterministic Rounding for Quantized Matrix Multiplication](https://arxiv.org/abs/2609.31641): The authors present a deterministic rounding strategy for matrix multiplication that uses null-space reduction to minimize quantization error across scalar interactions.
