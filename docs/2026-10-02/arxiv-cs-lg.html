@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Advances in Hardware-Aware Optimization, Metric Reliability, and Specialized Learning Architectures — Daily Digest</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root="../">
+  <header class="masthead">
+    <div class="masthead-inner">
+      <p class="brand"><a href="../">Daily Digest</a></p>
+      <p class="tagline">Data science digests from RSS, one post per source per day.</p>
+      <form class="date-go" role="search" action="../dates/" method="get">
+        <label for="digest-date">Date</label>
+        <input id="digest-date" name="date" data-date-picker type="date" value="2026-10-02">
+        <noscript>
+          <button type="submit">Browse dates</button>
+        </noscript>
+      </form>
+    </div>
+  </header>
+  <main>
+    
+<article class="post">
+  
+  <figure class="post-hero">
+    <img src="../assets/headers/2026-10-02/arxiv-cs-lg.jpg" alt="" width="1376" height="768" decoding="async">
+  </figure>
+  
+  <p class="kicker">
+    
+    <a href="https://arxiv.org/list/cs.LG/recent">arXiv cs.LG</a>
+    
+  </p>
+  <h1>Advances in Hardware-Aware Optimization, Metric Reliability, and Specialized Learning Architectures</h1>
+  <p class="meta">
+    <time datetime="2026-10-02">Friday, 02 October 2026</time>
+    · <a href="../2026-10-02/">That day’s posts</a>
+  </p>
+  <div class="body">
+    <p>Recent work in machine learning optimization continues to move toward hardware-aware execution and lower-precision formats. Researchers are addressing bottlenecks in GPU execution pipelines through format-aware fusion techniques tailored for 4-bit floating-point (FP4) pretraining, as well as short polynomial approximations designed to accelerate special-function units in transformer attention layers. Concurrently, theoretical analyses are clarifying the underlying mechanics of popular algorithms, establishing geometric connections between Adam's full momentum-based updates and Natural Gradient Descent, and optimizing novel structures like Kolmogorov-Arnold Networks using Stieltjes-Wigert q-orthogonal polynomials.</p>
+<p>Alongside architectural improvements, significant attention is focused on model calibration, uncertainty estimation, and dataset integrity. Recent audits reveal critical methodology flaws—such as data leakage from pre-split oversampling—in standard tabular benchmarks where near-perfect accuracy scores have masked real-world unreliability. Other studies demonstrate that large language models frequently diverge from human norms when communicating uncertainty verbally, and introduce theoretical frameworks for handling multi-expert interval labels and memory state decisions under uncalibrated data sources.</p>
+<p>In applied contexts, researchers emphasize the limitations of static, one-size-fits-all metrics. Analyses in educational technology demonstrate that uniform mastery thresholds lead to highly inconsistent advancement decisions depending on the choice of underlying knowledge tracing model, driving the adoption of multi-objective reinforcement learning systems that explicitly balance accuracy, fairness, and interpretability. Similarly, techniques adapted from psychometrics, such as reverse Item Response Theory, are proving effective at resolving severe data sparsity when ranking drug responses across fragmented cancer datasets.</p>
+<h2>Paper Summaries</h2>
+<ul>
+<li><a href="https://arxiv.org/abs/2610.00002">Reverse Item Response Theory for Sparsity-Robust Ranking in Fragmented Cancer Drug-Response Matrices</a>: Adapts Item Response Theory to treat cancer types as subjects and drugs as items, providing robust drug-response rankings in highly sparse biological datasets.</li>
+<li><a href="https://arxiv.org/abs/2610.00004">How Far is Adam from Natural Gradient Descent?</a>: Analyzes Adam's update rule, including momentum, as a diagonal empirical Fisher approximation to clarify its geometric relationship to Natural Gradient Descent.</li>
+<li><a href="https://arxiv.org/abs/2610.00009">FourierQK: Filter Shape, Admissibility and the Leakage-Coverage Law</a>: Evaluates filter shape hypotheses and frequency leakage trade-offs in frequency-collapse attention mechanisms.</li>
+<li><a href="https://arxiv.org/abs/2610.00035">Integrating Fairness and Explainability in a Multiple Instance Reinforcement Learning System</a>: Combines reinforcement learning and multiple instance learning to predict student performance while maintaining algorithmic fairness and transparency.</li>
+<li><a href="https://arxiv.org/abs/2610.00049">Fast Polynomial Transcendentals for LLMs</a>: Uses short polynomial programs to accelerate special-function-unit operations within attention kernels on modern GPU architectures.</li>
+<li><a href="https://arxiv.org/abs/2610.00050">SW-KAN: Kolmogorov-Arnold Networks with Stieltjes-Wigert q-Orthogonal Polynomials</a>: Replaces standard spline activations in Kolmogorov-Arnold Networks with Stieltjes-Wigert q-orthogonal polynomials to improve parameter and computational efficiency.</li>
+<li><a href="https://arxiv.org/abs/2610.00053">Format-Aware Fusion for Fast FP4 Pretraining</a>: Introduces format-aware kernel fusion to eliminate layout and scaling overheads during FP4 Tensor Core pretraining.</li>
+<li><a href="https://arxiv.org/abs/2610.00083">"very likely" Means "uncertain"? How LLMs Diverge from Humans in Linguistic Uncertainty Quantification</a>: Examines discrepancies between human cognitive interpretation and large language model outputs when expressing uncertainty through verbal phrases.</li>
+<li><a href="https://arxiv.org/abs/2610.00094">Nous: Learning and Certifying Memory Decisions Before Source Calibration</a>: Establishes theoretical bounds showing that agent memory systems can learn optimal state decisions prior to calibrating unverified information sources.</li>
+<li><a href="https://arxiv.org/abs/2610.00095">One Mastery Threshold Does Not Fit All Knowledge Tracing Models</a>: Demonstrates that identical numerical mastery thresholds yield divergent student advancement decisions across different knowledge tracing architectures.</li>
+<li><a href="https://arxiv.org/abs/2610.00102">Uncertainty-Aware Learning from Multi-Expert Interval Targets</a>: Proposes a framework for training models on interval-valued targets provided by multiple annotators to capture genuine ambiguity rather than annotation error.</li>
+<li><a href="https://arxiv.org/abs/2610.00118">The Hidden Costs of 99% Accuracy: A Trustworthiness Audit of the Telco Customer Churn Benchmark</a>: Audits a popular customer churn dataset to show how methodological errors, such as pre-split data augmentation, create artificially inflated accuracy metrics.</li>
+</ul>
+  </div>
+  
+  <p class="source-note">Original feed: <a href="https://arxiv.org/list/cs.LG/recent">arXiv cs.LG</a></p>
+  
+</article>
+
+  </main>
+  <footer>
+    <nav>
+      <a href="../">Home</a>
+      <a href="../dates/">All dates</a>
+    </nav>
+    <p>Summaries are generated from public RSS feeds. Follow original links for the full stories.</p>
+  </footer>
+  <script src="../assets/app.js"></script>
+</body>
+</html>
